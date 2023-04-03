@@ -202,8 +202,6 @@ This may be useful for debugging."
           (ess-wait-for-process proc nil 0.01 t))
         (unless (and proc (eq (process-status proc) 'run))
           (error "Process %s failed to start" proc-name))
-        (when ess-setwd-command
-          (ess-set-working-directory default-directory))
         (setq-local font-lock-fontify-region-function #'inferior-ess-fontify-region)
         (setq-local ess-sl-modtime-alist nil)
         (run-hooks 'ess-post-run-hook)
@@ -478,10 +476,10 @@ inserted in the process buffer instead of the command buffer."
       (process-put proc 'busy nil))))
 
 (defun ess--delimiter-start-re (delim)
-  (concat "\\(" delim "-START$\\)"))
+  (concat "\\(" delim "-START\r*$\\)"))
 
 (defun ess--delimiter-end-re (delim)
-  (concat "\\(" delim "-END\\)"))
+  (concat "\\(" delim "-END\r*\\)"))
 
 (defun inferior-ess-mark-as-busy (proc)
   "Put PROC's busy value to t."
@@ -518,8 +516,9 @@ inserted in the process buffer instead of the command buffer."
     --> busy:%s busy-end:%s sec-prompt:%s interruptable:%s <--
     --> running-async:%s callback:%s suppress-next-output:%s <--
     --> dbg-active:%s is-recover:%s <--
-    --> string:%s\n"
-           (or filter "NORMAL-FILTER")
+    --> cmd-buffer:%s cmd-output-delimiter:%s <--
+    --> string:%s<--\n"
+           (upcase (or filter "normal-filter"))
            (process-get proc 'busy)
            (process-get proc 'busy-end?)
            (process-get proc 'sec-prompt)
@@ -529,6 +528,8 @@ inserted in the process buffer instead of the command buffer."
            (process-get proc 'suppress-next-output?)
            (process-get proc 'dbg-active)
            (process-get proc 'is-recover)
+           (process-get proc 'cmd-buffer)
+           (process-get proc 'cmd-output-delimiter)
            (if (> (length string) 150)
                (format "%s .... %s" (substring string 0 50) (substring string -50))
              string))))
@@ -866,7 +867,11 @@ to `ess-completing-read'."
       (let ((proc-buf (ess-get-process-buffer proc)))
         (if noswitch
             (display-buffer proc-buf)
-          (pop-to-buffer proc-buf))))
+          (pop-to-buffer proc-buf)
+          ;; If inferior startup has already finished, set screen
+          ;; options again in case the post-run hook ran before a new
+          ;; screen config was created by `pop-to-buffer' (#1243).
+          (ess--execute-screen-options-bg))))
     proc))
 
 (defun ess-force-buffer-current (&optional prompt force no-autostart ask-if-1)
@@ -1049,6 +1054,7 @@ Returns nil if TIMEOUT was reached, non-nil otherwise."
           (setq wait .3))))
     (< elapsed timeout)))
 
+;; This filter is active under `ess-command`
 (defun inferior-ess-ordinary-filter (proc string)
   (ess--if-verbose-write-process-state proc string "ordinary-filter")
   (let* ((cmd-buf (process-get proc 'cmd-buffer))
@@ -1060,25 +1066,31 @@ Returns nil if TIMEOUT was reached, non-nil otherwise."
             (with-current-buffer cmd-buf
               (goto-char (point-max))
               (insert string))
-            (when-let ((info (if cmd-delim
-                                 (ess--command-delimited-output-info cmd-buf cmd-delim)
-                               (ess--command-output-info cmd-buf))))
-              (let ((new-output (ess--command-set-status proc cmd-buf info)))
-                (when (not (process-get proc 'busy))
-                  ;; Store new output until restoration
-                  (when new-output
-                    (process-put proc 'pending-output new-output))
-                  ;; Restore the user's process filter as soon as process is
-                  ;; available
-                  (funcall (process-get proc 'cmd-restore-function))
-                  ;; Run callback with command output
-                  (when (process-get proc 'callbacks)
-                    (inferior-ess-run-callback proc (with-current-buffer cmd-buf
-                                                      (buffer-string)))))))
+            (if-let ((info (if cmd-delim
+                               (ess--command-delimited-output-info cmd-buf cmd-delim)
+                             (ess--command-output-info cmd-buf))))
+                (let ((new-output (ess--command-set-status proc cmd-buf info)))
+                  (ess-if-verbose-write
+                   "ess-command (filter): Found prompt\n")
+                  (when (not (process-get proc 'busy))
+                    ;; Store new output until restoration
+                    (when new-output
+                      (process-put proc 'pending-output new-output))
+                    ;; Restore the user's process filter as soon as process is
+                    ;; available
+                    (funcall (process-get proc 'cmd-restore-function))
+                    ;; Run callback with command output
+                    (when (process-get proc 'callbacks)
+                      (inferior-ess-run-callback proc (with-current-buffer cmd-buf
+                                                        (buffer-string))))))
+              (ess-if-verbose-write
+               "ess-command (filter): Accumulating output\n"))
             (setq early-exit nil))
         ;; Be defensive when something goes wrong. Restore process to a
         ;; usable state.
         (when early-exit
+          (ess-if-verbose-write
+           "ess-command (filter): Early exit\n")
           (process-put proc 'busy nil)
           (funcall (process-get proc 'cmd-restore-function)))))))
 
@@ -1354,7 +1366,7 @@ wrapping the code into:
                                    (cons 'output-delimiter delim))
                         cmd))
             (early-exit t))
-        (ess-if-verbose-write (format "(ess-command %s ..)" cmd))
+        (ess-if-verbose-write (format "(ess-command '%s' ..)\n" cmd))
         ;; Swap the process buffer with the output buffer before
         ;; sending the command
         (unwind-protect
@@ -1404,7 +1416,7 @@ wrapping the code into:
                   ;; can't be found in the output. Disable the delimiter
                   ;; before interrupt to avoid a freeze.
                   (ess-write-to-dribble-buffer
-                   "Disabling output delimiter because CMD failed to parse")
+                   "Disabling output delimiter because CMD failed to parse\n")
                   (process-put proc 'cmd-output-delimiter nil))
                 (goto-char (point-max))
                 (ess--interrupt proc)))))))
@@ -2226,6 +2238,12 @@ in `ess-r-post-run-hook' or `ess-S+-post-run-hook'."
       (if invisibly
           (ess-command command)
         (ess-eval-linewise command nil nil nil 'wait-prompt)))))
+
+;; Runs in background if inferior is not busy
+(defun ess--execute-screen-options-bg ()
+  (when (and ess-execute-screen-options-command
+             (inferior-ess-available-p))
+    (ess-execute-screen-options t)))
 
 (defun ess-calculate-width (opt)
   "Calculate width command given OPT.

@@ -222,6 +222,7 @@ representative to the common interactive use with tracebug on."
                (setq ess-r-tests-current-output-buffer *inf-buf*)
                (let ((inhibit-read-only t))
                  (with-current-buffer ess-r-tests-current-output-buffer
+                   (ess-wait-for-process *proc*)
                    (erase-buffer)))
                (set-process-filter *proc* 'inferior-ess-output-filter)
                (prog1 (progn ,@body)
@@ -284,7 +285,8 @@ representative to the common interactive use with tracebug on."
 ;; It is safer to kill the buffer synchronously, otherwise it might be
 ;; reused in another test
 (defmacro ess-test-unwind-protect (inf-buf &rest body)
-  (declare (indent 1))
+  (declare (indent 1)
+           (debug (&rest form)))
   `(unwind-protect (progn ,@body)
      (let* ((inf-buf ,inf-buf)
             (inf-proc (get-buffer-process inf-buf)))

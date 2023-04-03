@@ -538,7 +538,15 @@ fill=TRUE); try(traceback(), silent=TRUE)})\n")
 ;;;*;;; Mode init
 
 (define-obsolete-variable-alias 'ess-R-post-run-hook 'ess-r-post-run-hook "ESS 18.10.2")
-(defvar ess-r-post-run-hook nil
+
+;; We moved the set-wd instruction from `inferior-ess' to here to
+;; avoid sending R code to gdb or lldb before we had a chance to
+;; send "run". So this is no longer generic and inferior modes need
+;; to call this manually. One way to fix this would be to make
+;; `inferior-ess' a `cl-defgeneric'.
+(defvar ess-r-post-run-hook '((lambda ()
+                                (ess-execute-screen-options t)
+                                (ess-set-working-directory default-directory)))
   "Functions run in process buffer after the initialization of R process.")
 
 ;;;###autoload
