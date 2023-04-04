@@ -544,10 +544,12 @@ fill=TRUE); try(traceback(), silent=TRUE)})\n")
 ;; send "run". So this is no longer generic and inferior modes need
 ;; to call this manually. One way to fix this would be to make
 ;; `inferior-ess' a `cl-defgeneric'.
-(defvar ess-r-post-run-hook '((lambda ()
-                                (ess-execute-screen-options t)
-                                (ess-set-working-directory default-directory)))
-  "Functions run in process buffer after the initialization of R process.")
+(defvar ess-r-post-run-hook nil
+  "Functions run in process buffer after the initialization of R process.
+Make sure to call blocking commands (e.g. based on `ess-command')
+first. Streaming commands (e.g. based on `ess-send-string')
+should come last, otherwise they will make R busy and the
+blocking commands will throw an error.")
 
 ;;;###autoload
 (defun run-ess-r (&optional start-args)
@@ -616,10 +618,7 @@ will be prompted to enter arguments interactively."
               (process-send-string (get-buffer-process inf-buf) "r\n"))
           (ess-wait-for-process)
           (ess-r-initialize-on-start)
-          (comint-goto-process-mark))
-        (ess-write-to-dribble-buffer
-         (format "(R): inferior-ess-language-start=%s\n"
-                 inferior-ess-language-start)))
+          (comint-goto-process-mark)))
       inf-buf)))
 
 ;;;###autoload
@@ -651,14 +650,17 @@ Executed in process buffer."
     (ess-command (format
                   "if (identical(getOption('pager'), file.path(R.home(), 'bin', 'pager')))
                        options(pager = '%s')\n"
-                  inferior-ess-pager)))
-  (ess-r-load-ESSR)
+                  inferior-ess-pager))
+    (ess-r-load-ESSR))
   (when inferior-ess-language-start
     (ess-command (concat inferior-ess-language-start "\n")))
-  ;; tracebug
-  (when ess-use-tracebug (ess-tracebug 1))
+  (ess-execute-screen-options t)
+  (ess-set-working-directory default-directory)
+  (when ess-use-tracebug
+    (ess-tracebug 1))
   (add-hook 'ess-presend-filter-functions 'ess-R-scan-for-library-call nil 'local)
-  (run-hooks 'ess-r-post-run-hook))
+  (run-hooks 'ess-r-post-run-hook)
+  (ess-wait-for-process))
 
 (defun ess-r--skip-function ()
   ;; Assumes the point is at function start
