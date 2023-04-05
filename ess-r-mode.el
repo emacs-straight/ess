@@ -616,8 +616,7 @@ will be prompted to enter arguments interactively."
               (ess-process-put 'callbacks '(inferior-ess-r--init-callback))
               ;; Trigger the callback
               (process-send-string (get-buffer-process inf-buf) "r\n"))
-          (ess-wait-for-process)
-          (ess-r-initialize-on-start)
+          (ess-r-initialize)
           (comint-goto-process-mark)))
       inf-buf)))
 
@@ -628,7 +627,7 @@ will be prompted to enter arguments interactively."
   (set-buffer (run-ess-r start-args)))
 
 (defun inferior-ess-r--init-callback (_proc _name)
-  (ess-r-initialize-on-start))
+  (ess-r-initialize))
 
 (defmacro ess-r--without-format-command (&rest body)
   (declare (indent 0)
@@ -641,19 +640,27 @@ will be prompted to enter arguments interactively."
              ,@body)
          (setq ess-format-command-alist old-alist)))))
 
-(define-obsolete-function-alias 'R-initialize-on-start 'ess-r-initialize-on-start "ESS 19.04")
-(defun ess-r-initialize-on-start ()
+(defvar ess-r--init-timeout 5
+  "Maximum time for R to become available on startup.
+If the timeout is reached, an error is thrown advising the user
+to run `ess-r-initialize' again.")
+
+(define-obsolete-function-alias 'R-initialize-on-start 'ess-r-initialize "ESS 19.04")
+(defun ess-r-initialize ()
   "This function is run after the first R prompt.
 Executed in process buffer."
   (interactive)
-  (ess-r--without-format-command
-    (ess-command (format
-                  "if (identical(getOption('pager'), file.path(R.home(), 'bin', 'pager')))
-                       options(pager = '%s')\n"
-                  inferior-ess-pager))
-    (ess-r-load-ESSR))
-  (when inferior-ess-language-start
-    (ess-command (concat inferior-ess-language-start "\n")))
+  (condition-case err
+      (progn
+        (unless (ess-wait-for-process nil nil nil nil ess-r--init-timeout)
+          (error "Process is busy"))
+        (ess-r--without-format-command
+          (ess-command (ess-r--init-options-command))
+          ;; TODO: Detect early exits on the R side and communicate
+          ;; them to lisp
+          (ess-r-load-ESSR)))
+    (error (ess-r--init-error-handler err))
+    (quit (ess-r--init-error-handler)))
   (ess-execute-screen-options t)
   (ess-set-working-directory default-directory)
   (when ess-use-tracebug
@@ -661,6 +668,38 @@ Executed in process buffer."
   (add-hook 'ess-presend-filter-functions 'ess-R-scan-for-library-call nil 'local)
   (run-hooks 'ess-r-post-run-hook)
   (ess-wait-for-process))
+
+;; TODO: Disable `ess-can-eval-in-background' in the process that
+;; failed to start to prevent cascading errors
+(defun ess-r--init-error-handler (&optional err)
+  (ess-write-to-dribble-buffer "Failed to start ESSR\n")
+  (let ((msgs `("ESSR failed to start, please call `ess-r-initialize' to recover"
+                ,@(when err
+                    (concat "Caused by error: " (error-message-string err))))))
+    (error (mapconcat 'identity msgs "\n"))))
+
+;; FIXME: Should we stop setting `str.dendogram.last`? See:
+;; https://emacs.stackexchange.com/questions/27673/ess-dendrograms-appearance-of-last-branch/27729#27729
+;;
+;; FIXME: We don't use `ess-r-pager`? It's nil by default and
+;; documented that this should not normally be set
+(defun ess-r--init-options-command ()
+  (let ((args (list (format "STERM = '%s'" ess-STERM)
+                    "str.dendrogram.last = '\\''"
+                    (format "editor = '%s'" ess-r-editor)
+                    (ess-r--opt-if-unset "pager"
+                                         "file.path(R.home(), 'bin', 'pager')"
+                                         (format "'%s'" inferior-ess-pager))
+                    "show.error.locations = TRUE")))
+    (format "options(%s)\n" (mapconcat 'identity args ", "))))
+
+(defun ess-r--opt-if-unset (opt default value)
+  (format "%s = if (identical(getOption('%s'), %s)) %s else %s"
+          opt
+          opt
+          default
+          value
+          default))
 
 (defun ess-r--skip-function ()
   ;; Assumes the point is at function start
