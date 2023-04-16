@@ -4,6 +4,22 @@
 Changes and New Features in 19.04 (unreleased):
 @itemize @bullet
 
+@item ESS[R]: When a background command is interrupted with C-g,
+ESS now asks the user if they want to disable background evaluations
+altogether. This is a resiliency measure against cases where background
+evals cause cascading errors or hangs.
+
+@item ESS[R]: Background commands now propagate errors to Emacs.
+
+@item ESS[R]: Background commands can now be disabled by process instad of globally.
+For instance when a process has failed to initialize properly,
+background evals are disabled for that particular process to avoid
+cascading errors. Other processes may still use background commands.
+
+@item ESS[R]: ESSR commands are now more robust when ESSR is
+not in scope. This can happen when using @code{browser()} in
+an environment that doesn't inherit from the search path.
+
 @item ESS[R]: Unexpected exits are now detected during startup.
 In that case an error is thrown with advice about how to recover.
 

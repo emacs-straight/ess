@@ -103,7 +103,8 @@ been initialized."
          (progn
            (setq-local inferior-ess-mode-syntax-table
                        (eval (or (alist-get 'inferior-ess-mode-syntax-table ess-local-customize-alist)
-                                 (alist-get 'ess-mode-syntax-table ess-local-customize-alist))))
+                                 (alist-get 'ess-mode-syntax-table ess-local-customize-alist))
+                             t))
            (inferior-ess-mode)))))
 
  ;;*;; Process handling
@@ -128,6 +129,11 @@ If `ess-plain-first-buffername', then initial process is number-free."
 
 (defvar-local inferior-ess--local-data nil
   "Program name and arguments used to start the inferior process.")
+
+(defvar inferior-ess--last-started-process-buffer nil
+  "Useful in unit tests to check initialisation errors.
+In that case the command fails before it can return the process
+buffer to us. This global variable can be checked instead.")
 
 (defun inferior-ess (start-args customize-alist &optional no-wait)
   "Start inferior ESS process.
@@ -160,7 +166,7 @@ This may be useful for debugging."
   ;; This function is primarily used to figure out the Process and
   ;; buffer names to use for inferior-ess.
   (run-hooks 'ess-pre-run-hook)
-  (let* ((dialect (eval (cdr (assoc 'ess-dialect customize-alist))))
+  (let* ((dialect (eval (cdr (assoc 'ess-dialect customize-alist)) t))
          (process-environment process-environment)
          ;; Use dialect if not R, R program name otherwise
          (temp-dialect (if ess-use-inferior-program-in-buffer-name ;VS[23-02-2013]: FIXME: this should not be here
@@ -209,6 +215,7 @@ This may be useful for debugging."
         (unless no-wait
           (ess-write-to-dribble-buffer "(inferior-ess): waiting for process (after hook)\n")
           (ess-wait-for-process proc)))
+      (setq inferior-ess--last-started-process-buffer inf-buf)
       inf-buf)))
 
 (defun inferior-ess--get-proc-buffer-create (name)
@@ -286,7 +293,6 @@ Default depends on the ESS language/dialect and hence made buffer local")
 BEG and END signify the bounds, VERBOSE gets passed to
 `font-lock-default-fontify-region'."
   (let* ((buffer-undo-list t)
-         (inhibit-point-motion-hooks t)
          (font-lock-dont-widen t)
          (font-lock-extend-region-functions nil)
          (pos1 beg)
@@ -354,14 +360,13 @@ defined. If no project directory has been found, use
 ;; This ensures that people who have this set in their init file don't
 ;; get errors about undefined functions after upgrading ESS:
 (define-obsolete-function-alias 'ess-gen-proc-buffer-name:projectile-or-simple
-  'ess-gen-proc-buffer-name:project-or-simple "ESS 19.04")
+  #'ess-gen-proc-buffer-name:project-or-simple "ESS 19.04")
 (define-obsolete-function-alias 'ess-gen-proc-buffer-name:projectile-or-directory
-  'ess-gen-proc-buffer-name:project-or-directory "ESS 19.04")
+  #'ess-gen-proc-buffer-name:project-or-directory "ESS 19.04")
 
 (defun inferior-ess-available-p (&optional proc)
   "Return non-nil if PROC is not busy."
-  (when-let ((proc (or proc (and ess-local-process-name
-                                 (get-process ess-local-process-name)))))
+  (when-let ((proc (or proc (ess-get-current-process))))
     (unless (process-get proc 'busy)
       (or (ess-debug-active-p proc) ; don't send empty lines in debugger
           (when-let ((last-check (process-get proc 'last-availability-check)))
@@ -480,6 +485,12 @@ inserted in the process buffer instead of the command buffer."
 
 (defun ess--delimiter-end-re (delim)
   (concat "\\(" delim "-END\r*\\)"))
+
+(defun ess--delimiter-error-start-re ()
+  "ESSR::ERROR \\(\"\\)")
+
+(defun ess--delimiter-error-end-re ()
+  "\\(\"\\)")
 
 (defun inferior-ess-mark-as-busy (proc)
   "Put PROC's busy value to t."
@@ -609,8 +620,8 @@ process-less buffer because it was created with
                    (split-string switches))))
   (let ((proc (get-buffer-process buf)))
     ;; Set the process hooks
-    (set-process-sentinel proc 'ess-process-sentinel)
-    (set-process-filter proc 'inferior-ess-output-filter)
+    (set-process-sentinel proc #'ess-process-sentinel)
+    (set-process-filter proc #'inferior-ess-output-filter)
     (inferior-ess-mark-as-busy proc)
     ;; Add this process to ess-process-name-list, if needed
     (let ((conselt (assoc proc-name ess-process-name-list)))
@@ -669,7 +680,7 @@ local ESS vars like `ess-local-process-name'."
            (,dialect ess-dialect)
            (,alist ess-local-customize-alist))
        (with-current-buffer ,buffer
-         (ess-setq-vars-local (eval ,alist))
+         (ess-setq-vars-local (eval ,alist t))
          (setq ess-local-process-name ,lpn)
          (setq ess-dialect ,dialect)
          ,@body))))
@@ -755,10 +766,8 @@ Returns the name of the process, or nil if the current buffer has none."
   "Check if the local ess process is alive.
 Return nil if current buffer has no associated process, or
 process was killed. PROC defaults to `ess-local-process-name'"
-  (and (or proc ess-local-process-name)
-       (let ((proc (or proc (get-process ess-local-process-name))))
-         (and (processp proc)
-              (process-live-p proc)))))
+  (when-let ((proc (or proc (ess-get-current-process))))
+    (process-live-p proc)))
 
 (defun ess-process-get (propname &optional proc)
   "Return the variable PROPNAME (symbol) of the current ESS process.
@@ -910,25 +919,49 @@ it was successfully forced, throws an error otherwise."
   (interactive)
   (ess-force-buffer-current "Process to use: " 'force nil 'ask-if-1))
 
-(defun ess-get-next-available-process (&optional dialect ignore-busy)
+(defun ess-get-current-process ()
+  (when ess-local-process-name
+    (get-process ess-local-process-name)))
+
+(defun ess-get-current-process-buffer ()
+  (when-let ((proc (ess-get-current-process)))
+    (process-buffer proc)))
+
+(defun ess-get-next-available-process (&optional dialect ignore-busy background)
   "Return first available (aka not busy) process of dialect DIALECT.
 DIALECT defaults to the local value of ess-dialect. Return nil if
-no such process has been found."
+no such process has been found. If BACKGROUND is non-nil, only
+processes that are allowed to evaluate in the background are
+matched."
   (setq dialect (or dialect ess-dialect))
-  (when dialect
+  (when (and dialect (or (not background)
+                         ess-can-eval-in-background))
     (let (proc)
       (catch 'found
         (dolist (p (cons ess-local-process-name
-                         (mapcar 'car ess-process-name-list)))
+                         (mapcar #'car ess-process-name-list)))
           (when p
             (setq proc (get-process p))
             (when (and proc
                        (process-live-p proc)
                        (equal dialect
                               (buffer-local-value 'ess-dialect (process-buffer proc)))
+                       ;; Check that we can evaluate in background
+                       ;; before checking for availability to
+                       ;; avoid issues with newline handshakes
+                       (or (not background)
+                           (ess-can-eval-in-background proc))
                        (or ignore-busy
                            (inferior-ess-available-p proc)))
               (throw 'found proc))))))))
+
+(defun ess-get-next-available-bg-process (&optional proc dialect ignore-busy)
+  "Returns first avaiable process only if background evaluations are allowed.
+Same as `ess-get-next-available-process' but checks for
+`ess-can-eval-in-background'."
+  (if proc
+      (ess-can-eval-in-background proc)
+    (ess-get-next-available-process dialect ignore-busy 'background)))
 
 
 ;;*;;; Commands for switching to the process buffer
@@ -1168,7 +1201,7 @@ Hide all the junk output in temporary buffer."
             ;; this is to avoid putting junk in user's buffer on process
             ;; interruption
             (set-process-buffer proc buf)
-            (set-process-filter proc 'inferior-ess-ordinary-filter)
+            (set-process-filter proc #'inferior-ess-ordinary-filter)
             (interrupt-process proc)
             (when cb
               (ess-if-verbose-write "executing interruption callback ... ")
@@ -1300,19 +1333,6 @@ This handles Tramp when working on a remote."
       (user-error "ESS process not ready. Finish your command before trying again")))
   proc)
 
-(defvar-local ess-format-command-alist nil
-  "Alist of mode-specific parameters for formatting a command.
-All elements are optional.
-
-- `fun': A formatting function for running a command. First
-  argument is the background command to run. Must include a
-  catch-all `&rest` parameter for extensibility.
-
-- `use-delimiter' : Whether to wait for an output sentinel. If
-  non-nil, `fun' should get the `cmd-output-delimiter' element of the
-  alist of parameters and ensure the sentinel is written to the
-  process output at the end of the command.")
-
 (defvar inferior-ess--output-delimiter-count 0)
 (defun inferior-ess--output-delimiter ()
   (setq inferior-ess--output-delimiter-count (1+ inferior-ess--output-delimiter-count))
@@ -1359,70 +1379,111 @@ wrapping the code into:
         (delim (inferior-ess--output-delimiter))
         (timeout (or timeout ess--command-default-timeout)))
     (with-current-buffer (process-buffer proc)
-      (let ((proc-forward-alist (ess--alist (ess-local-process-name
-                                             inferior-ess-primary-prompt)))
-            (use-delimiter (alist-get 'use-delimiter ess-format-command-alist))
-            (rich-cmd (if-let ((cmd-fun (alist-get 'fun ess-format-command-alist)))
-                          (funcall cmd-fun
-                                   (ess--strip-final-newlines cmd)
-                                   (cons 'output-delimiter delim))
-                        cmd))
-            (early-exit t))
+      (let* ((proc-forward-alist (ess--alist (ess-local-process-name
+                                              inferior-ess-primary-prompt)))
+             (format-command-alist (ess-process-get 'format-command-alist))
+             (use-delimiter (alist-get 'use-delimiter format-command-alist))
+             (rich-cmd (if-let ((cmd-fun (alist-get 'fun format-command-alist)))
+                           (funcall cmd-fun
+                                    (ess--strip-final-newlines cmd)
+                                    (cons 'output-delimiter delim))
+                         cmd))
+             (early-exit t))
         (ess-if-verbose-write (format "(ess-command '%s' ..)\n" cmd))
         ;; Swap the process buffer with the output buffer before
         ;; sending the command
         (unwind-protect
-            (progn
-              ;; The process is restored from the filter once it's
-              ;; available again (i.e. a prompt or delimiter is
-              ;; detected). This handles the synchronous case when the
-              ;; command runs to completion, as well as the
-              ;; asynchronous case when an early exit occurs. The most
-              ;; common cause of early exits are interrupts sent by
-              ;; Emacs when the user types (see `when-no-input'). In
-              ;; these cases we forward the interrupt to the process
-              ;; and return to the caller right away. We can't restore
-              ;; synchronously after an interrupt because the output
-              ;; of the background command would spill into the
-              ;; process buffer of the user when the process doesn't
-              ;; interrupt in time.
-              (process-put proc 'cmd-restore-function
-                           (ess--command-make-restore-function proc))
-              (when use-delimiter
-                (process-put proc 'cmd-output-delimiter delim))
-              (process-put proc 'cmd-buffer out-buffer)
-              (set-process-filter proc 'inferior-ess-ordinary-filter)
-              (with-current-buffer out-buffer
-                (ess-setq-vars-local proc-forward-alist)
-                (setq buffer-read-only nil)
-                (erase-buffer)
-                (inferior-ess-mark-as-busy proc)
-                (process-send-string proc rich-cmd)
-                ;; Need time for ess-create-object-name-db on PC
-                (if no-prompt-check
-                    (sleep-for 0.02) ; 0.1 is noticeable!
-                  (unless (ess-wait-for-process proc nil wait force-redisplay timeout)
-                    (error "Timeout during background ESS command `%s'"
-                           (ess--strip-final-newlines cmd)))))
-              (setq early-exit nil))
-          (when early-exit
-            ;; Protect process interruption from further quits
-            (let ((inhibit-quit t))
-              ;; In case of early exit send an interrupt to the
-              ;; process to abort the command
-              (with-current-buffer out-buffer
-                (goto-char (point-min))
-                (when (and use-delimiter
-                           (not (re-search-forward (ess--delimiter-start-re delim) nil t)))
-                  ;; CMD probably failed to parse if the start delimiter
-                  ;; can't be found in the output. Disable the delimiter
-                  ;; before interrupt to avoid a freeze.
-                  (ess-write-to-dribble-buffer
-                   "Disabling output delimiter because CMD failed to parse\n")
-                  (process-put proc 'cmd-output-delimiter nil))
-                (goto-char (point-max))
-                (ess--interrupt proc)))))))
+            (condition-case err
+                (progn
+                  ;; The process is restored from the filter once it's
+                  ;; available again (i.e. a prompt or delimiter is
+                  ;; detected). This handles the synchronous case when the
+                  ;; command runs to completion, as well as the
+                  ;; asynchronous case when an early exit occurs. The most
+                  ;; common cause of early exits are interrupts sent by
+                  ;; Emacs when the user types (see `when-no-input'). In
+                  ;; these cases we forward the interrupt to the process
+                  ;; and return to the caller right away. We can't restore
+                  ;; synchronously after an interrupt because the output
+                  ;; of the background command would spill into the
+                  ;; process buffer of the user when the process doesn't
+                  ;; interrupt in time.
+                  (process-put proc 'cmd-restore-function
+                               (ess--command-make-restore-function proc))
+                  (when use-delimiter
+                    (process-put proc 'cmd-output-delimiter delim))
+                  (process-put proc 'cmd-buffer out-buffer)
+                  (set-process-filter proc #'inferior-ess-ordinary-filter)
+                  (with-current-buffer out-buffer
+                    (ess-setq-vars-local proc-forward-alist)
+                    (setq buffer-read-only nil)
+                    (erase-buffer)
+                    (inferior-ess-mark-as-busy proc)
+                    (process-send-string proc rich-cmd)
+                    ;; Need time for ess-create-object-name-db on PC
+                    (if no-prompt-check
+                        (sleep-for 0.02) ; 0.1 is noticeable!
+                      (unless (ess-wait-for-process proc nil wait force-redisplay timeout)
+                        (error "Timeout during background ESS command `%s'"
+                               (ess--strip-final-newlines cmd))))
+                    (setq early-exit nil)))
+              (error (setq early-exit err))
+              (quit (setq early-exit err)))
+          (if early-exit
+              (ess--command-error-handler proc out-buffer use-delimiter delim early-exit)
+            (with-current-buffer out-buffer
+              (goto-char (point-min))
+              (when (re-search-forward (ess--delimiter-error-start-re) nil t)
+                (let ((start (1+ (match-beginning 1))))
+                  (when (re-search-forward (ess--delimiter-error-end-re) nil t)
+                    (let ((end (match-beginning 1)))
+                      (error "R error during background ESS command `%s'\nError: %s"
+                             (ess--strip-final-newlines cmd)
+                             (buffer-substring start end)))))))))))
     out-buffer))
+
+(defun ess--command-error-handler (proc
+                                   out-buffer
+                                   use-delimiter
+                                   delim
+                                   early-exit)
+  (let ((inhibit-quit t))
+    ;; In case of early exit send an interrupt to the
+    ;; process to abort the command
+    (with-current-buffer out-buffer
+      (goto-char (point-min))
+      (when (and use-delimiter
+                 (not (re-search-forward (ess--delimiter-start-re delim) nil t)))
+        ;; CMD probably failed to parse if the start delimiter
+        ;; can't be found in the output. Disable the delimiter
+        ;; before interrupt to avoid a freeze.
+        (ess-write-to-dribble-buffer
+         "Disabling output delimiter because CMD failed to parse\n")
+        (process-put proc 'cmd-output-delimiter nil))
+      (goto-char (point-max))
+      (ess--interrupt proc)))
+  ;; Can be `t` when early exit is caused e.g. by a throw instead of
+  ;; an error or a quit. This happens in tests and within
+  ;; `while-no-input'.
+  (unless (eq early-exit t)
+    (when (and (eq (car early-exit) 'quit)
+               (y-or-n-p (concat "Background background command interrupted with a user quit.\n"
+                                 "Would you like to disable background evaluations in this process?")))
+      (process-put proc 'bg-eval-disabled t))
+    (signal (car early-exit) (cdr early-exit))))
+
+;; (ess-process-get 'ess-format-command-alist)
+;;   "Alist of mode-specific parameters for formatting a command.
+;; All elements are optional.
+;;
+;; - `fun': A formatting function for running a command. First
+;;   argument is the background command to run. Must include a
+;;   catch-all `&rest` parameter for extensibility.
+;;
+;; - `use-delimiter' : Whether to wait for an output sentinel. If
+;;   non-nil, `fun' should get the `cmd-output-delimiter' element of the
+;;   alist of parameters and ensure the sentinel is written to the
+;;   process output at the end of the command."
 
 (defun ess--command-make-restore-function (proc)
   (let ((old-pf (process-filter proc)))
@@ -1694,7 +1755,7 @@ Prefix arg VIS toggles visibility of ess-code as for
       (setq msg (format "Eval function: %s"
                         (if (looking-at add-log-current-defun-header-regexp)
                             (match-string 1)
-                          (buffer-substring (point) (point-at-eol)))))
+                          (buffer-substring (point) (line-end-position)))))
       (setq beg (point))
       (end-of-defun)
       (setq end (point))
@@ -1710,7 +1771,7 @@ Prefix arg VIS toggles visibility of ess-code as for
 Prefix arg VIS toggles visibility of ess-code as for `ess-eval-region'."
   (interactive "P")
   (let ((start-pos (point)))
-    (if (= (point-at-bol) (point-min))
+    (if (= (line-beginning-position) (point-min))
         (ess-next-code-line 0)
       ;; Evaluation is forward oriented
       (forward-line -1)
@@ -1801,8 +1862,8 @@ input will fail."
   "Send the current line to the inferior ESS process.
 VIS has same meaning as for `ess-eval-region'."
   (interactive "P")
-  (let* ((beg (point-at-bol))
-         (end (point-at-eol))
+  (let* ((beg (line-beginning-position))
+         (end (line-end-position))
          (msg (format "Loading line: %s" (buffer-substring beg end))))
     (ess-eval-region beg end vis msg)))
 
@@ -1846,7 +1907,8 @@ Evaluate all comments and empty lines."
   (interactive)
   (let ((ess-eval-visibly nil))
     (ess-eval-line-and-step)))
-(define-obsolete-function-alias 'ess-eval-line-and-step-invisibly 'ess-eval-line-invisibly-and-step "18.10")
+(define-obsolete-function-alias 'ess-eval-line-and-step-invisibly
+  #'ess-eval-line-invisibly-and-step "18.10")
 
 
 ;;;*;;; Evaluate and switch to S
@@ -2027,9 +2089,10 @@ node `(ess)Top'. If you accidentally suspend your process, use
           "]: %s"))
 
   ;;; Completion support ----------------
-  (remove-hook 'completion-at-point-functions 'comint-completion-at-point t) ;; reset the hook
-  (add-hook 'completion-at-point-functions 'comint-c-a-p-replace-by-expanded-history nil 'local)
-  (add-hook 'completion-at-point-functions 'ess-filename-completion nil 'local)
+  (remove-hook 'completion-at-point-functions #'comint-completion-at-point t) ;; reset the hook
+  (add-hook 'completion-at-point-functions
+            #'comint-c-a-p-replace-by-expanded-history nil 'local)
+  (add-hook 'completion-at-point-functions #'ess-filename-completion nil 'local)
 
   ;; hyperlinks support
   (goto-address-mode t)
@@ -2163,13 +2226,13 @@ If in the output field, goes to the beginning of previous input."
       (if (looking-at inferior-ess-prompt) ; cust.var, might not include sec-prompt
           (progn
             (comint-skip-prompt)
-            (setq command (buffer-substring-no-properties (point) (point-at-eol)))
+            (setq command (buffer-substring-no-properties (point) (line-end-position)))
             (when inferior-ess-secondary-prompt
               (while (progn (forward-line 1)
                             (looking-at inferior-ess-secondary-prompt))
-                (re-search-forward inferior-ess-secondary-prompt (point-at-eol) t)
+                (re-search-forward inferior-ess-secondary-prompt (line-end-position) t)
                 (setq command (concat command "\n"
-                                      (buffer-substring-no-properties (point) (point-at-eol))))))
+                                      (buffer-substring-no-properties (point) (line-end-position))))))
             (forward-line -1)
             command)
         (message "No command at this point")
@@ -2180,6 +2243,17 @@ If in the output field, goes to the beginning of previous input."
   (if comint-use-prompt-regexp
       (inferior-ess--get-old-input:regexp)
     (inferior-ess--get-old-input:field)))
+
+(defun ess-can-eval-in-background (&optional proc)
+  "Can the current process be used for background commands.
+Inspects the `ess-can-eval-in-background' variable as well as the
+`bg-eval-disabled' property of PROC or of the current process, if
+any. This makes it possible to disable background evals for a
+specific process, for instance in case it was not initialized
+properly."
+  (when ess-can-eval-in-background
+    (when-let ((proc (or proc (ess-get-current-process))))
+      (not (process-get proc 'bg-eval-disabled)))))
 
 
 ;;;*;;; Hot key commands
@@ -2672,7 +2746,7 @@ name that contains :,$ or @."
 	         (goto-char (point-min))
 	         (when (re-search-forward "(list" nil t)
 	           (goto-char (match-beginning 0))
-	           (setq args (ignore-errors (eval (read (current-buffer)))))
+	           (setq args (ignore-errors (eval (read (current-buffer)) t)))
 	           (when args
 		         (setcar args (cons (car args) (current-time)))))
 	         ;; push even if nil
@@ -2933,8 +3007,8 @@ P-STRING is the prompt string."
                     (car ess--handy-history))))
     (call-interactively
      (cdr (assoc (ess-completing-read "Execute"
-                                      (sort (mapcar 'car commands)
-                                            'string-lessp)
+                                      (sort (mapcar #'car commands)
+                                            #'string-lessp)
                                       nil t nil 'ess--handy-history hist)
                  commands)))))
 
@@ -2977,9 +3051,9 @@ NO-ERROR prevents errors when this has not been implemented for
     (unless no-error
       (error "Not implemented for dialect %s" ess-dialect))))
 
-(defalias 'ess-change-directory 'ess-set-working-directory)
+(defalias 'ess-change-directory #'ess-set-working-directory)
 (define-obsolete-function-alias
-  'ess-use-dir 'ess-set-working-directory "ESS 18.10")
+  'ess-use-dir #'ess-set-working-directory "ESS 18.10")
 
 (defun ess-use-this-dir (&rest _ignore)
   "Set the current process directory to the directory of this file.
@@ -3000,7 +3074,7 @@ NO-ERROR prevents errors when this has not been implemented for
 (defun ess-synchronize-dirs ()
   "Set Emacs' current directory to be the same as the subprocess directory.
 To be used in `ess-idle-timer-functions'."
-  (when (and ess-can-eval-in-background
+  (when (and (ess-can-eval-in-background)
              ess-getwd-command
              (inferior-ess-available-p))
     (ess-when-new-input last-sync-dirs
@@ -3040,7 +3114,7 @@ path, and can be a remote path"
 
 (defun ess-cache-search-list ()
   "To be used in `ess-idle-timer-functions', to set search path related variables."
-  (when (and ess-can-eval-in-background
+  (when (and (ess-can-eval-in-background)
              inferior-ess-search-list-command)
     (ess-when-new-input last-cache-search-list
       (let ((path (ess-search-list 'force))
