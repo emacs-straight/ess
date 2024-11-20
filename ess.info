@@ -1,4 +1,4 @@
-This is docPQAXvi.info, produced by makeinfo version 6.8 from ess.texi.
+This is docJW1eQs.info, produced by makeinfo version 6.8 from ess.texi.
 
 INFO-DIR-SECTION Emacs
 START-INFO-DIR-ENTRY
@@ -9,7 +9,7 @@ ESS -- Emacs Speaks Statistics
 ******************************
 
 
-File: docPQAXvi.info,  Node: Top,  Next: Introduction,  Up: (dir)
+File: docJW1eQs.info,  Node: Top,  Next: Introduction,  Up: (dir)
 
 ESS: Emacs Speaks Statistics
 ****************************
@@ -72,7 +72,7 @@ the file COPYING in the same directory as this file for more details.
 * Indices::
 
 
-File: docPQAXvi.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
+File: docJW1eQs.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Introduction to ESS
 *********************
@@ -133,7 +133,7 @@ specified source directories.
 * Manual::                      How to read this manual
 
 
-File: docPQAXvi.info,  Node: Features,  Next: New features,  Up: Introduction
+File: docJW1eQs.info,  Node: Features,  Next: New features,  Up: Introduction
 
 1.1 Why should I use ESS?
 =========================
@@ -155,7 +155,7 @@ means, visit <https://www.gnu.org/philosophy/free-sw.html>.
 * Current Features::
 
 
-File: docPQAXvi.info,  Node: Current Features,  Up: Features
+File: docJW1eQs.info,  Node: Current Features,  Up: Features
 
 1.1.1 Features Overview
 -----------------------
@@ -244,7 +244,7 @@ transcript files, including:
      unnecessary prompts.  *Note Transcript resubmit::.
 
 
-File: docPQAXvi.info,  Node: New features,  Next: Credits,  Prev: Features,  Up: Introduction
+File: docJW1eQs.info,  Node: New features,  Next: Credits,  Prev: Features,  Up: Introduction
 
 1.2 New features in ESS
 =======================
@@ -809,7 +809,7 @@ documentation for more detail:
    * ESS[Julia]: Added getwd and setwd generic commands
 
 
-File: docPQAXvi.info,  Node: Credits,  Next: Manual,  Prev: New features,  Up: Introduction
+File: docJW1eQs.info,  Node: Credits,  Next: Manual,  Prev: New features,  Up: Introduction
 
 1.3 Authors of and contributors to ESS
 ======================================
@@ -889,7 +889,7 @@ Windows.
    * J. Alexander Branham (mailto:alex.branham@gmail.com)
 
 
-File: docPQAXvi.info,  Node: Manual,  Prev: Credits,  Up: Introduction
+File: docJW1eQs.info,  Node: Manual,  Prev: Credits,  Up: Introduction
 
 1.4 How to read this manual
 ===========================
@@ -941,7 +941,7 @@ ESS to your taste, but it is recommended that you defer this section
 until you are more familiar with ESS.
 
 
-File: docPQAXvi.info,  Node: Installation,  Next: Interactive ESS,  Prev: Introduction,  Up: Top
+File: docJW1eQs.info,  Node: Installation,  Next: Interactive ESS,  Prev: Introduction,  Up: Top
 
 2 Installing ESS on your system
 *******************************
@@ -968,7 +968,7 @@ you.  See *note Activating and Loading ESS:: for more details.
 * Check Installation::
 
 
-File: docPQAXvi.info,  Node: Installing from a third-party repository,  Next: Installing from source
+File: docJW1eQs.info,  Node: Installing from a third-party repository,  Next: Installing from source
 
 2.1 Installing from a third-party repository
 ============================================
@@ -988,7 +988,7 @@ in each Emacs session.  See *note Activating and Loading ESS::.
 Depending on install method, this may be taken care of automatically.
 
 
-File: docPQAXvi.info,  Node: Installing from source,  Next: Activating and Loading ESS,  Prev: Installing from a third-party repository
+File: docJW1eQs.info,  Node: Installing from source,  Next: Activating and Loading ESS,  Prev: Installing from a third-party repository
 
 2.2 Installing from source
 ==========================
@@ -1030,7 +1030,7 @@ path in 'Makeconf'.  The necessary code and instructions are commented
 in that file.
 
 
-File: docPQAXvi.info,  Node: Activating and Loading ESS,  Next: Check Installation,  Prev: Installing from source
+File: docJW1eQs.info,  Node: Activating and Loading ESS,  Next: Check Installation,  Prev: Installing from source
 
 2.3 Activating and Loading ESS
 ==============================
@@ -1063,7 +1063,7 @@ from source, you must have run 'make'):
 features or only R related features.
 
 
-File: docPQAXvi.info,  Node: Check Installation,  Prev: Activating and Loading ESS
+File: docJW1eQs.info,  Node: Check Installation,  Prev: Activating and Loading ESS
 
 2.4 Check Installation
 ======================
@@ -1072,7 +1072,7 @@ Restart Emacs and check that ESS was loaded from a correct location with
 'M-x ess-version'.
 
 
-File: docPQAXvi.info,  Node: Interactive ESS,  Next: Entering commands,  Prev: Installation,  Up: Top
+File: docJW1eQs.info,  Node: Interactive ESS,  Next: Entering commands,  Prev: Installation,  Up: Top
 
 3 Interacting with statistical programs
 ***************************************
@@ -1095,7 +1095,7 @@ statistical programs.
 * Controlling buffer display::
 
 
-File: docPQAXvi.info,  Node: Starting up,  Next: Multiple ESS processes,  Up: Interactive ESS
+File: docJW1eQs.info,  Node: Starting up,  Next: Multiple ESS processes,  Up: Interactive ESS
 
 3.1 Starting an ESS process
 ===========================
@@ -1116,7 +1116,7 @@ for interacting with the ESS process, and you can start entering
 commands.
 
 
-File: docPQAXvi.info,  Node: Multiple ESS processes,  Next: ESS processes on Remote Computers,  Prev: Starting up,  Up: Interactive ESS
+File: docJW1eQs.info,  Node: Multiple ESS processes,  Next: ESS processes on Remote Computers,  Prev: Starting up,  Up: Interactive ESS
 
 3.2 Running more than one ESS process
 =====================================
@@ -1139,7 +1139,7 @@ completion is provided over the names of all running processes.  This is
 a good command to consider binding to a global key.
 
 
-File: docPQAXvi.info,  Node: ESS processes on Remote Computers,  Next: Customizing startup,  Prev: Multiple ESS processes,  Up: Interactive ESS
+File: docJW1eQs.info,  Node: ESS processes on Remote Computers,  Next: Customizing startup,  Prev: Multiple ESS processes,  Up: Interactive ESS
 
 3.3 ESS processes on Remote Computers
 =====================================
@@ -1226,7 +1226,7 @@ convert it to an ESS buffer and allow you to use the ESS commands with
 it.
 
 
-File: docPQAXvi.info,  Node: Customizing startup,  Next: Controlling buffer display,  Prev: ESS processes on Remote Computers,  Up: Interactive ESS
+File: docJW1eQs.info,  Node: Customizing startup,  Next: Controlling buffer display,  Prev: ESS processes on Remote Computers,  Up: Interactive ESS
 
 3.4 Changing the startup actions
 ================================
@@ -1288,7 +1288,7 @@ buffer.  If you want it to be shown, set 'ess-auto-width-visible' to a
 non-nil value.
 
 
-File: docPQAXvi.info,  Node: Controlling buffer display,  Prev: Customizing startup,  Up: Interactive ESS
+File: docJW1eQs.info,  Node: Controlling buffer display,  Prev: Customizing startup,  Up: Interactive ESS
 
 3.5 Controlling buffer display
 ==============================
@@ -1352,7 +1352,7 @@ so like this:
              ("\\.R$" . ((display-buffer-same-window) (inhibit-same-window . nil)))))
 
 
-File: docPQAXvi.info,  Node: Entering commands,  Next: Evaluating code,  Prev: Interactive ESS,  Up: Top
+File: docJW1eQs.info,  Node: Entering commands,  Next: Evaluating code,  Prev: Interactive ESS,  Up: Top
 
 4 Interacting with the ESS process
 **********************************
@@ -1378,7 +1378,7 @@ ease of typing.
 * Other::                       Other commands provided by inferior-ESS
 
 
-File: docPQAXvi.info,  Node: Command-line editing,  Next: Transcript,  Up: Entering commands
+File: docJW1eQs.info,  Node: Command-line editing,  Next: Transcript,  Up: Entering commands
 
 4.1 Entering commands and fixing mistakes
 =========================================
@@ -1415,7 +1415,7 @@ mistakes:
 input.
 
 
-File: docPQAXvi.info,  Node: Transcript,  Next: Command History,  Prev: Command-line editing,  Up: Entering commands
+File: docJW1eQs.info,  Node: Transcript,  Next: Command History,  Prev: Command-line editing,  Up: Entering commands
 
 4.2 Manipulating the transcript
 ===============================
@@ -1451,7 +1451,7 @@ information about page commands, *note Pages: (emacs)Pages.
 * Saving transcripts::          Keeping a record of your R session
 
 
-File: docPQAXvi.info,  Node: Last command,  Next: Process buffer motion,  Up: Transcript
+File: docJW1eQs.info,  Node: Last command,  Next: Process buffer motion,  Up: Transcript
 
 4.2.1 Manipulating the output from the last command
 ---------------------------------------------------
@@ -1479,7 +1479,7 @@ the last command to the current prompt.  Use this command judiciously to
 keep your transcript to a more manageable size.
 
 
-File: docPQAXvi.info,  Node: Process buffer motion,  Next: Transcript resubmit,  Prev: Last command,  Up: Transcript
+File: docJW1eQs.info,  Node: Process buffer motion,  Next: Transcript resubmit,  Prev: Last command,  Up: Transcript
 
 4.2.2 Viewing older commands
 ----------------------------
@@ -1515,7 +1515,7 @@ the pattern.
      argument; REGEXP is prompted for in the minibuffer.
 
 
-File: docPQAXvi.info,  Node: Transcript resubmit,  Next: Saving transcripts,  Prev: Process buffer motion,  Up: Transcript
+File: docJW1eQs.info,  Node: Transcript resubmit,  Next: Saving transcripts,  Prev: Process buffer motion,  Up: Transcript
 
 4.2.3 Re-submitting commands from the transcript
 ------------------------------------------------
@@ -1554,7 +1554,7 @@ more sophisticated mechanism, however, which is described in *note
 Command History::.
 
 
-File: docPQAXvi.info,  Node: Saving transcripts,  Prev: Transcript resubmit,  Up: Transcript
+File: docJW1eQs.info,  Node: Saving transcripts,  Prev: Transcript resubmit,  Up: Transcript
 
 4.2.4 Keeping a record of your R session
 ----------------------------------------
@@ -1587,7 +1587,7 @@ transcript, leaving only source code suitable for inclusion in files
 'source()'-able from R. *note Transcript Mode: Clean.
 
 
-File: docPQAXvi.info,  Node: Command History,  Next: History expansion,  Prev: Transcript,  Up: Entering commands
+File: docJW1eQs.info,  Node: Command History,  Next: History expansion,  Prev: Transcript,  Up: Entering commands
 
 4.3 Command History
 ===================
@@ -1669,7 +1669,7 @@ customization cannot be part of 'ESS' itself.
 * Saving History::
 
 
-File: docPQAXvi.info,  Node: Saving History,  Up: Command History
+File: docJW1eQs.info,  Node: Saving History,  Up: Command History
 
 4.3.1 Saving the command history
 --------------------------------
@@ -1692,7 +1692,7 @@ or if you prefer only one global command history file:
 in your Emacs configuration file.
 
 
-File: docPQAXvi.info,  Node: History expansion,  Next: Hot keys,  Prev: Command History,  Up: Entering commands
+File: docJW1eQs.info,  Node: History expansion,  Next: Hot keys,  Prev: Command History,  Up: Entering commands
 
 4.4 References to historical commands
 =====================================
@@ -1778,7 +1778,7 @@ press <RET> to execute.
 'data', type '!?data SPC TAB RET'.
 
 
-File: docPQAXvi.info,  Node: Hot keys,  Next: Statistical Process running in ESS?,  Prev: History expansion,  Up: Entering commands
+File: docJW1eQs.info,  Node: Hot keys,  Next: Statistical Process running in ESS?,  Prev: History expansion,  Up: Entering commands
 
 4.5 Hot keys for common commands
 ================================
@@ -1859,7 +1859,7 @@ process buffer or in a separate buffer, as indicated:
      killed.
 
 
-File: docPQAXvi.info,  Node: Statistical Process running in ESS?,  Next: Emacsclient,  Prev: Hot keys,  Up: Entering commands
+File: docJW1eQs.info,  Node: Statistical Process running in ESS?,  Next: Emacsclient,  Prev: Hot keys,  Up: Entering commands
 
 4.6 Is the Statistical Process running under ESS?
 =================================================
@@ -1890,7 +1890,7 @@ set these other values since the R language program is not under the
 control of ESS.
 
 
-File: docPQAXvi.info,  Node: Emacsclient,  Next: Other,  Prev: Statistical Process running in ESS?,  Up: Entering commands
+File: docJW1eQs.info,  Node: Emacsclient,  Next: Other,  Prev: Statistical Process running in ESS?,  Up: Entering commands
 
 4.7 Using emacsclient
 =====================
@@ -1907,7 +1907,7 @@ definition of the function is updated.  Using 'edit()' rather than
 temporary Emacs buffer.
 
 
-File: docPQAXvi.info,  Node: Other,  Prev: Emacsclient,  Up: Entering commands
+File: docJW1eQs.info,  Node: Other,  Prev: Emacsclient,  Up: Entering commands
 
 4.8 Other commands provided by inferior-ESS
 ===========================================
@@ -1935,7 +1935,7 @@ The following commands are also available in the process buffer:
 (emacs)Shell Mode::.
 
 
-File: docPQAXvi.info,  Node: Evaluating code,  Next: Transcript Mode,  Prev: Entering commands,  Up: Top
+File: docJW1eQs.info,  Node: Evaluating code,  Next: Transcript Mode,  Prev: Entering commands,  Up: Top
 
 5 Sending code to the ESS process
 *********************************
@@ -2022,7 +2022,7 @@ output reaches the bottom of the window, you will need to set the
 variable 'comint-move-point-for-output' to ''others' or 't'.
 
 
-File: docPQAXvi.info,  Node: Transcript Mode,  Next: Editing objects,  Prev: Evaluating code,  Up: Top
+File: docJW1eQs.info,  Node: Transcript Mode,  Next: Editing objects,  Prev: Evaluating code,  Up: Top
 
 6 Manipulating saved transcript files
 *************************************
@@ -2048,7 +2048,7 @@ commands or with 'C-c C-p' and 'C-c C-n'.
 * Clean::                       Cleaning transcript files
 
 
-File: docPQAXvi.info,  Node: Resubmit,  Next: Clean,  Up: Transcript Mode
+File: docJW1eQs.info,  Node: Resubmit,  Next: Clean,  Up: Transcript Mode
 
 6.1 Resubmitting commands from the transcript file
 ==================================================
@@ -2075,7 +2075,7 @@ when the cursor is on a command line in the transcript; the prompt is
 automatically removed before the command is submitted.
 
 
-File: docPQAXvi.info,  Node: Clean,  Prev: Resubmit,  Up: Transcript Mode
+File: docJW1eQs.info,  Node: Clean,  Prev: Resubmit,  Up: Transcript Mode
 
 6.2 Cleaning transcript files
 =============================
@@ -2097,7 +2097,7 @@ directly (*note Evaluating code::) using the code evaluation commands
 from R mode, also available in R Transcript Mode.
 
 
-File: docPQAXvi.info,  Node: Editing objects,  Next: Help,  Prev: Transcript Mode,  Up: Top
+File: docJW1eQs.info,  Node: Editing objects,  Next: Help,  Prev: Transcript Mode,  Up: Top
 
 7 Editing objects and functions
 *******************************
@@ -2121,7 +2121,7 @@ Error-checking is performed when R code is loaded into the ESS process.
 * Source Directories::          Names and locations of dump files
 
 
-File: docPQAXvi.info,  Node: Edit buffer,  Next: Loading,  Up: Editing objects
+File: docJW1eQs.info,  Node: Edit buffer,  Next: Loading,  Up: Editing objects
 
 7.1 Creating or modifying R objects
 ===================================
@@ -2162,7 +2162,7 @@ prefix argument to 'ess-dump-object-into-edit-buffer' by typing 'C-u C-c
 C-e C-d'.
 
 
-File: docPQAXvi.info,  Node: Loading,  Next: Error Checking,  Prev: Edit buffer,  Up: Editing objects
+File: docJW1eQs.info,  Node: Loading,  Next: Error Checking,  Prev: Edit buffer,  Up: Editing objects
 
 7.2 Loading source files into the ESS process
 =============================================
@@ -2183,7 +2183,7 @@ will then be loaded, and if it loads successfully you will be returned
 to the ESS process.
 
 
-File: docPQAXvi.info,  Node: Error Checking,  Next: Indenting,  Prev: Loading,  Up: Editing objects
+File: docJW1eQs.info,  Node: Error Checking,  Next: Indenting,  Prev: Loading,  Up: Editing objects
 
 7.3 Detecting errors in source files
 ====================================
@@ -2204,7 +2204,7 @@ behavior (and avoid jumping to the file when there _is_ a syntax error)
 by passing a prefix argument to 'ess-parse-errors' with 'C-u C-c `'.
 
 
-File: docPQAXvi.info,  Node: Indenting,  Next: Other edit buffer commands,  Prev: Error Checking,  Up: Editing objects
+File: docJW1eQs.info,  Node: Indenting,  Next: Other edit buffer commands,  Prev: Error Checking,  Up: Editing objects
 
 7.4 Indenting and formatting R code
 ===================================
@@ -2275,7 +2275,7 @@ maintained in the source code as comments *Note roxygen2::.
 * Styles:: Changing styles for indentation and alignment
 
 
-File: docPQAXvi.info,  Node: Styles,  Up: Indenting
+File: docJW1eQs.info,  Node: Styles,  Up: Indenting
 
 7.4.1 Changing styles for code indentation and alignment
 --------------------------------------------------------
@@ -2327,7 +2327,7 @@ variable and ensure that the last line of the ':set' declaration calls
 Finally, add '(setq ess-style 'MINE)' to use your new style.
 
 
-File: docPQAXvi.info,  Node: Other edit buffer commands,  Next: Source Files,  Prev: Indenting,  Up: Editing objects
+File: docJW1eQs.info,  Node: Other edit buffer commands,  Next: Source Files,  Prev: Indenting,  Up: Editing objects
 
 7.5 Commands for motion, completion and more
 ============================================
@@ -2366,7 +2366,7 @@ C-v', edit another function with 'C-c C-e C-d' and of course 'C-c C-l'
 can be used to load a source file into R.
 
 
-File: docPQAXvi.info,  Node: Source Files,  Next: Source Directories,  Prev: Other edit buffer commands,  Up: Editing objects
+File: docJW1eQs.info,  Node: Source Files,  Next: Source Directories,  Prev: Other edit buffer commands,  Up: Editing objects
 
 7.6 Maintaining R source files
 ==============================
@@ -2452,7 +2452,7 @@ if you happen to quit Emacs before correcting the error.
 'ess-keep-dump-files'.
 
 
-File: docPQAXvi.info,  Node: Source Directories,  Prev: Source Files,  Up: Editing objects
+File: docJW1eQs.info,  Node: Source Directories,  Prev: Source Files,  Up: Editing objects
 
 7.7 Names and locations of dump files
 =====================================
@@ -2520,7 +2520,7 @@ directory.  If you choose not to, or the directory cannot be created,
 you will not be able to edit functions.
 
 
-File: docPQAXvi.info,  Node: Help,  Next: Completion,  Prev: Editing objects,  Up: Top
+File: docJW1eQs.info,  Node: Help,  Next: Completion,  Prev: Editing objects,  Up: Top
 
 8 Reading help files
 ********************
@@ -2690,7 +2690,7 @@ by adding an entry in 'display-buffer-alist'; for examples, see *Note
 'ess-display-buffer-reuse-frame'.
 
 
-File: docPQAXvi.info,  Node: Completion,  Next: Developing with ESS,  Prev: Help,  Up: Top
+File: docJW1eQs.info,  Node: Completion,  Next: Developing with ESS,  Prev: Help,  Up: Top
 
 9 Completion
 ************
@@ -2704,7 +2704,7 @@ File: docPQAXvi.info,  Node: Completion,  Next: Developing with ESS,  Prev: Help
 * Icicles::
 
 
-File: docPQAXvi.info,  Node: Object names,  Next: Function arguments,  Up: Completion
+File: docJW1eQs.info,  Node: Object names,  Next: Function arguments,  Up: Completion
 
 9.1 Completion of object names
 ==============================
@@ -2759,7 +2759,7 @@ complete an object you *know* is there), the command 'M-x ess-resynch'
 forces the _entire_ cache to be refreshed, which should fix the problem.
 
 
-File: docPQAXvi.info,  Node: Function arguments,  Next: Minibuffer completion,  Prev: Object names,  Up: Completion
+File: docJW1eQs.info,  Node: Function arguments,  Next: Minibuffer completion,  Prev: Object names,  Up: Completion
 
 9.2 Completion of function arguments
 ====================================
@@ -2781,7 +2781,7 @@ suggests 'formula = ' rather than 'formula='), you can adjust
 arguments in the echo area whenever the point is inside a function call.
 
 
-File: docPQAXvi.info,  Node: Minibuffer completion,  Next: Company,  Prev: Function arguments,  Up: Completion
+File: docJW1eQs.info,  Node: Minibuffer completion,  Next: Company,  Prev: Function arguments,  Up: Completion
 
 9.3 Minibuffer completion
 =========================
@@ -2793,7 +2793,7 @@ completion if the 'ido' package is available and the value of
 if this feature is not available for whatever reason.
 
 
-File: docPQAXvi.info,  Node: Company,  Next: Icicles,  Prev: Minibuffer completion,  Up: Completion
+File: docJW1eQs.info,  Node: Company,  Next: Icicles,  Prev: Minibuffer completion,  Up: Completion
 
 9.4 Company
 ===========
@@ -2804,7 +2804,7 @@ company support, set 'ess-use-company' to 'nil'.  You can set it to
 ''script-only' to only activate company in R scripts.
 
 
-File: docPQAXvi.info,  Node: Icicles,  Prev: Company,  Up: Completion
+File: docJW1eQs.info,  Node: Icicles,  Prev: Company,  Up: Completion
 
 9.5 Icicles
 ===========
@@ -2835,7 +2835,7 @@ to match an additional pattern (repeatable).  You can cycle among the
 matching candidates, choosing with 'RET' or 'mouse-2'.
 
 
-File: docPQAXvi.info,  Node: Developing with ESS,  Next: Extras,  Prev: Completion,  Up: Top
+File: docJW1eQs.info,  Node: Developing with ESS,  Next: Extras,  Prev: Completion,  Up: Top
 
 10 Developing with ESS
 **********************
@@ -2850,7 +2850,7 @@ packages:
 * Namespaced Evaluation::               Develop your packages on the fly
 
 
-File: docPQAXvi.info,  Node: ESS tracebug,  Next: Editing documentation,  Up: Developing with ESS
+File: docJW1eQs.info,  Node: ESS tracebug,  Next: Editing documentation,  Up: Developing with ESS
 
 10.1 ESS tracebug
 =================
@@ -2930,7 +2930,7 @@ English add the following line to your .Rprofile init file:
    Sys.setlocale("LC_MESSAGES", "C")
 
 
-File: docPQAXvi.info,  Node: Getting started with tracebug,  Up: ESS tracebug
+File: docJW1eQs.info,  Node: Getting started with tracebug,  Up: ESS tracebug
 
 10.1.1 Getting started with tracebug
 ------------------------------------
@@ -2986,7 +2986,7 @@ window displays what the object is at any given time and automatically
 updates.  Quit the watch window with 'q'.
 
 
-File: docPQAXvi.info,  Node: Editing documentation,  Next: Namespaced Evaluation,  Prev: ESS tracebug,  Up: Developing with ESS
+File: docJW1eQs.info,  Node: Editing documentation,  Next: Namespaced Evaluation,  Prev: ESS tracebug,  Up: Developing with ESS
 
 10.2 Editing documentation
 ==========================
@@ -3002,7 +3002,7 @@ roxygen2 package.
 * roxygen2::                     Loading source files into the ESS process
 
 
-File: docPQAXvi.info,  Node: R documentation files,  Next: roxygen2,  Up: Editing documentation
+File: docJW1eQs.info,  Node: R documentation files,  Next: roxygen2,  Up: Editing documentation
 
 10.2.1 Editing R documentation (Rd) files
 -----------------------------------------
@@ -3096,7 +3096,7 @@ mode, add the following lines to one of your Emacs startup files:
                 (font-lock-mode 1)))
 
 
-File: docPQAXvi.info,  Node: roxygen2,  Prev: R documentation files,  Up: Editing documentation
+File: docJW1eQs.info,  Node: roxygen2,  Prev: R documentation files,  Up: Editing documentation
 
 10.2.2 Editing roxygen2 documentation
 -------------------------------------
@@ -3201,7 +3201,7 @@ make roxygen2 editing more intuitive:
      string.
 
 
-File: docPQAXvi.info,  Node: Namespaced Evaluation,  Prev: Editing documentation,  Up: Developing with ESS
+File: docJW1eQs.info,  Node: Namespaced Evaluation,  Prev: Editing documentation,  Up: Developing with ESS
 
 10.3 Namespaced Evaluation
 ==========================
@@ -3240,7 +3240,7 @@ package.  In such cases 'C-c C-t C-s' is your friend.
      package).
 
 
-File: docPQAXvi.info,  Node: Extras,  Next: ESS for R,  Prev: Developing with ESS,  Up: Top
+File: docJW1eQs.info,  Node: Extras,  Next: ESS for R,  Prev: Developing with ESS,  Up: Top
 
 11 Other ESS features and tools
 *******************************
@@ -3263,7 +3263,7 @@ ESS has a few extra features, which didn't fit anywhere else.
 * Sweave and AUCTeX::           Support for Sweave in ESS and AUCTeX
 
 
-File: docPQAXvi.info,  Node: ESS ElDoc,  Next: ESS Flymake,  Up: Extras
+File: docJW1eQs.info,  Node: ESS ElDoc,  Next: ESS Flymake,  Up: Extras
 
 11.1 ElDoc
 ==========
@@ -3298,7 +3298,7 @@ indifferent of the value of 'ess-eldoc-abbreviation-style'.  This way
 you can combine different filter levels with the truncation.
 
 
-File: docPQAXvi.info,  Node: ESS Flymake,  Next: Handy commands,  Prev: ESS ElDoc,  Up: Extras
+File: docJW1eQs.info,  Node: ESS Flymake,  Next: Handy commands,  Prev: ESS ElDoc,  Up: Extras
 
 11.2 Flymake
 ============
@@ -3325,7 +3325,7 @@ package, available from CRAN.
      disable lintr's caching mechanism.
 
 
-File: docPQAXvi.info,  Node: Handy commands,  Next: Highlighting,  Prev: ESS Flymake,  Up: Extras
+File: docJW1eQs.info,  Node: Handy commands,  Next: Highlighting,  Prev: ESS Flymake,  Up: Extras
 
 11.3 Handy commands
 ===================
@@ -3368,7 +3368,7 @@ interface to 'findFn' function in package 'sos'.  If package 'sos' is
 not found, ask user for interactive install.
 
 
-File: docPQAXvi.info,  Node: Highlighting,  Next: Parens,  Prev: Handy commands,  Up: Extras
+File: docJW1eQs.info,  Node: Highlighting,  Next: Parens,  Prev: Handy commands,  Up: Extras
 
 11.4 Syntactic highlighting of buffers
 ======================================
@@ -3393,7 +3393,7 @@ you may modify if desired:
      source functions and reserved words.
 
 
-File: docPQAXvi.info,  Node: Parens,  Next: Graphics,  Prev: Highlighting,  Up: Extras
+File: docJW1eQs.info,  Node: Parens,  Next: Graphics,  Prev: Highlighting,  Up: Extras
 
 11.5 Parenthesis matching
 =========================
@@ -3407,7 +3407,7 @@ putting this in your Emacs configuration file:
      (show-paren-mode)
 
 
-File: docPQAXvi.info,  Node: Graphics,  Next: Imenu,  Prev: Parens,  Up: Extras
+File: docJW1eQs.info,  Node: Graphics,  Next: Imenu,  Prev: Parens,  Up: Extras
 
 11.6 Using graphics with ESS
 ============================
@@ -3427,7 +3427,7 @@ features for dealing with such plots.
 * winjava::                     Java Graphics Device
 
 
-File: docPQAXvi.info,  Node: printer,  Next: X11,  Up: Graphics
+File: docJW1eQs.info,  Node: printer,  Next: X11,  Up: Graphics
 
 11.6.1 Using ESS with the 'printer()' driver
 --------------------------------------------
@@ -3444,7 +3444,7 @@ graphics immediately, but are stored until the 'show()' command is
 issued, which displays the current figure.
 
 
-File: docPQAXvi.info,  Node: X11,  Next: winjava,  Prev: printer,  Up: Graphics
+File: docJW1eQs.info,  Node: X11,  Next: winjava,  Prev: printer,  Up: Graphics
 
 11.6.2 Using ESS with windowing devices
 ---------------------------------------
@@ -3454,7 +3454,7 @@ system.  Under X Windows, or X11, this requires that the DISPLAY
 environment variable be appropriately set.
 
 
-File: docPQAXvi.info,  Node: winjava,  Prev: X11,  Up: Graphics
+File: docJW1eQs.info,  Node: winjava,  Prev: X11,  Up: Graphics
 
 11.6.3 Java Graphics Device
 ---------------------------
@@ -3470,7 +3470,7 @@ interaction and graphics within S-PLUS. (Thanks to Tim Hesterberg for
 this information.)
 
 
-File: docPQAXvi.info,  Node: Imenu,  Next: Toolbar,  Prev: Graphics,  Up: Extras
+File: docJW1eQs.info,  Node: Imenu,  Next: Toolbar,  Prev: Graphics,  Up: Extras
 
 11.7 Imenu
 ==========
@@ -3489,7 +3489,7 @@ uses, check the value of 'imenu-generic-expression'.  This value is set
 by various ESS variables such as 'ess-imenu-S-generic-expression'.
 
 
-File: docPQAXvi.info,  Node: Toolbar,  Next: Xref,  Prev: Imenu,  Up: Extras
+File: docJW1eQs.info,  Node: Toolbar,  Next: Xref,  Prev: Imenu,  Up: Extras
 
 11.8 Toolbar
 ============
@@ -3501,7 +3501,7 @@ present if your Emacs can display images.  *Note Customization::, for
 ways to change the toolbar.
 
 
-File: docPQAXvi.info,  Node: Xref,  Next: Rdired,  Prev: Toolbar,  Up: Extras
+File: docJW1eQs.info,  Node: Xref,  Next: Rdired,  Prev: Toolbar,  Up: Extras
 
 11.9 Xref
 =========
@@ -3512,7 +3512,7 @@ Emacs versions 25.1 and higher.  For how to use this feature, see *Note
 (emacs)Xref::.
 
 
-File: docPQAXvi.info,  Node: Rdired,  Next: Package listing,  Prev: Xref,  Up: Extras
+File: docJW1eQs.info,  Node: Rdired,  Next: Package listing,  Prev: Xref,  Up: Extras
 
 11.10 Rdired
 ============
@@ -3544,7 +3544,7 @@ the object, 'v' will view it, and 'd' will mark the object for deletion
 ('x' will actually perform the deletion).
 
 
-File: docPQAXvi.info,  Node: Package listing,  Next: Org,  Prev: Rdired,  Up: Extras
+File: docJW1eQs.info,  Node: Package listing,  Next: Org,  Prev: Rdired,  Up: Extras
 
 11.11 Package listing
 =====================
@@ -3584,7 +3584,7 @@ separate buffer and window, in 'ess-rutils-mode', providing useful key
 bindings in this mode (type '?' in this buffer for a description).
 
 
-File: docPQAXvi.info,  Node: Org,  Next: Sweave and AUCTeX,  Prev: Package listing,  Up: Extras
+File: docJW1eQs.info,  Node: Org,  Next: Sweave and AUCTeX,  Prev: Package listing,  Up: Extras
 
 11.12 Interaction with Org mode
 ===============================
@@ -3603,7 +3603,7 @@ data can be passed from the Org document (e.g.  from a table) to the ESS
 R process.  (This section contributed by Dan Davison and Eric Schulte.)
 
 
-File: docPQAXvi.info,  Node: Sweave and AUCTeX,  Prev: Org,  Up: Extras
+File: docJW1eQs.info,  Node: Sweave and AUCTeX,  Prev: Org,  Up: Extras
 
 11.13 Support for Sweave in ESS and AUCTeX
 ==========================================
@@ -3659,7 +3659,7 @@ cases, the process can be monitored with 'C-c C-l'
 ('TeX-view'), as usual in AUCTeX.
 
 
-File: docPQAXvi.info,  Node: ESS for R,  Next: ESS for SAS,  Prev: Extras,  Up: Top
+File: docJW1eQs.info,  Node: ESS for R,  Next: ESS for SAS,  Prev: Extras,  Up: Top
 
 12 Overview of ESS features for the S family
 ********************************************
@@ -3672,7 +3672,7 @@ File: docPQAXvi.info,  Node: ESS for R,  Next: ESS for SAS,  Prev: Extras,  Up: 
 * Example ESS usage::
 
 
-File: docPQAXvi.info,  Node: ESS(R)--Editing files,  Next: iESS(R)--Inferior ESS processes,  Up: ESS for R
+File: docJW1eQs.info,  Node: ESS(R)--Editing files,  Next: iESS(R)--Inferior ESS processes,  Up: ESS for R
 
 12.1 ESS[R]-Editing files
 =========================
@@ -3684,7 +3684,7 @@ the current buffer into R mode.  However, one will have to start up an
 inferior process to take advantage of the interactive features.
 
 
-File: docPQAXvi.info,  Node: iESS(R)--Inferior ESS processes,  Next: Philosophies for using ESS(R),  Prev: ESS(R)--Editing files,  Up: ESS for R
+File: docJW1eQs.info,  Node: iESS(R)--Inferior ESS processes,  Next: Philosophies for using ESS(R),  Prev: ESS(R)--Editing files,  Up: ESS for R
 
 12.2 iESS[R]-Inferior ESS processes
 ===================================
@@ -3741,7 +3741,7 @@ version of R that it found.  (ESS examines the date in the first line of
 information from 'R --version' to determine which is newest.)
 
 
-File: docPQAXvi.info,  Node: Philosophies for using ESS(R),  Next: Example ESS usage,  Prev: iESS(R)--Inferior ESS processes,  Up: ESS for R
+File: docJW1eQs.info,  Node: Philosophies for using ESS(R),  Next: Example ESS usage,  Prev: iESS(R)--Inferior ESS processes,  Up: ESS for R
 
 12.3 Philosophies for using ESS[R]
 ==================================
@@ -3763,7 +3763,7 @@ following lines to your Emacs configuration file:
      (setq ess-mode-silently-save nil)
 
 
-File: docPQAXvi.info,  Node: Example ESS usage,  Prev: Philosophies for using ESS(R),  Up: ESS for R
+File: docJW1eQs.info,  Node: Example ESS usage,  Prev: Philosophies for using ESS(R),  Up: ESS for R
 
 12.4 Example ESS usage
 ======================
@@ -3816,7 +3816,7 @@ Comments as to what should be happening are prefixed by "##".
 
 
 
-File: docPQAXvi.info,  Node: ESS for SAS,  Next: ESS for BUGS,  Prev: ESS for R,  Up: Top
+File: docJW1eQs.info,  Node: ESS for SAS,  Next: ESS for BUGS,  Prev: ESS for R,  Up: Top
 
 13 ESS for SAS
 **************
@@ -3839,7 +3839,7 @@ ESS[SAS].  The user interface of ESS[SAS] has similarities with ESS[S]
 and the SAS Display Manager.
 
 
-File: docPQAXvi.info,  Node: ESS(SAS)--Design philosophy,  Next: ESS(SAS)--Editing files,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: ESS(SAS)--Design philosophy,  Next: ESS(SAS)--Editing files,  Up: ESS for SAS
 
 13.1 ESS[SAS]-Design philosophy
 ===============================
@@ -3860,7 +3860,7 @@ SAS programs is supported.
      appealing to advanced ESS[SAS] users.
 
 
-File: docPQAXvi.info,  Node: ESS(SAS)--Editing files,  Next: ESS(SAS)--TAB key,  Prev: ESS(SAS)--Design philosophy,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: ESS(SAS)--Editing files,  Next: ESS(SAS)--TAB key,  Prev: ESS(SAS)--Design philosophy,  Up: ESS for SAS
 
 13.2 ESS[SAS]-Editing files
 ===========================
@@ -3897,7 +3897,7 @@ single/double quotes in 'CARDS' data lines are *NOT* ignored; in an
 iterative 'DO' statement, 'TO' and 'BY' are not highlighted.
 
 
-File: docPQAXvi.info,  Node: ESS(SAS)--TAB key,  Next: ESS(SAS)--Batch SAS processes,  Prev: ESS(SAS)--Editing files,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: ESS(SAS)--TAB key,  Next: ESS(SAS)--Batch SAS processes,  Prev: ESS(SAS)--Editing files,  Up: ESS for SAS
 
 13.3 ESS[SAS]-<TAB> key
 =======================
@@ -3924,7 +3924,7 @@ line in your initialization file prior to a 'require'/'load':
 and the stops are defined by 'ess-sas-tab-stop-list'.
 
 
-File: docPQAXvi.info,  Node: ESS(SAS)--Batch SAS processes,  Next: ESS(SAS)--Function keys for batch processing,  Prev: ESS(SAS)--TAB key,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: ESS(SAS)--Batch SAS processes,  Next: ESS(SAS)--Function keys for batch processing,  Prev: ESS(SAS)--TAB key,  Up: ESS for SAS
 
 13.4 ESS[SAS]-Batch SAS processes
 =================================
@@ -4027,7 +4027,7 @@ the first error message, if any.
      <F3> (<F8>)
 
 
-File: docPQAXvi.info,  Node: ESS(SAS)--Function keys for batch processing,  Next: iESS(SAS)--Interactive SAS processes,  Prev: ESS(SAS)--Batch SAS processes,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: ESS(SAS)--Function keys for batch processing,  Next: iESS(SAS)--Interactive SAS processes,  Prev: ESS(SAS)--Batch SAS processes,  Up: ESS for SAS
 
 13.5 ESS[SAS]-Function keys for batch processing
 ================================================
@@ -4206,7 +4206,7 @@ landscape (first line for "global" key mapping, second for "local"):
      (define-key sas-mode-local-map [(control f2)] 'ess-sas-rtf-a4-landscape)
 
 
-File: docPQAXvi.info,  Node: iESS(SAS)--Interactive SAS processes,  Next: iESS(SAS)--Common problems,  Prev: ESS(SAS)--Function keys for batch processing,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: iESS(SAS)--Interactive SAS processes,  Next: iESS(SAS)--Common problems,  Prev: ESS(SAS)--Function keys for batch processing,  Up: ESS for SAS
 
 13.6 iESS[SAS]-Interactive SAS processes
 ========================================
@@ -4290,7 +4290,7 @@ for monitoring output!
    Troubleshooting: *Note iESS(SAS)--Common problems::.
 
 
-File: docPQAXvi.info,  Node: iESS(SAS)--Common problems,  Next: ESS(SAS)--Graphics,  Prev: iESS(SAS)--Interactive SAS processes,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: iESS(SAS)--Common problems,  Next: ESS(SAS)--Graphics,  Prev: iESS(SAS)--Interactive SAS processes,  Up: ESS for SAS
 
 13.7 iESS[SAS]-Common problems
 ==============================
@@ -4320,7 +4320,7 @@ File: docPQAXvi.info,  Node: iESS(SAS)--Common problems,  Next: ESS(SAS)--Graphi
 appears before the directory in which the 'sas' shell script appears.
 
 
-File: docPQAXvi.info,  Node: ESS(SAS)--Graphics,  Next: ESS(SAS)--Windows,  Prev: iESS(SAS)--Common problems,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: ESS(SAS)--Graphics,  Next: ESS(SAS)--Windows,  Prev: iESS(SAS)--Common problems,  Up: ESS for SAS
 
 13.8 ESS[SAS]-Graphics
 ======================
@@ -4340,7 +4340,7 @@ on screen, for example:
      run;
 
 
-File: docPQAXvi.info,  Node: ESS(SAS)--Windows,  Prev: ESS(SAS)--Graphics,  Up: ESS for SAS
+File: docJW1eQs.info,  Node: ESS(SAS)--Windows,  Prev: ESS(SAS)--Graphics,  Up: ESS for SAS
 
 13.9 ESS[SAS]-Windows
 =====================
@@ -4358,7 +4358,7 @@ File: docPQAXvi.info,  Node: ESS(SAS)--Windows,  Prev: ESS(SAS)--Graphics,  Up: 
      'submit-region' or paste them into SAS Display Manager.
 
 
-File: docPQAXvi.info,  Node: ESS for BUGS,  Next: ESS for JAGS,  Prev: ESS for SAS,  Up: Top
+File: docJW1eQs.info,  Node: ESS for BUGS,  Next: ESS for JAGS,  Prev: ESS for SAS,  Up: Top
 
 14 ESS for BUGS
 ***************
@@ -4400,7 +4400,7 @@ The '.bog' extension is used for BUGS log files.  The command line
 generated by ESS creates the '.bog' transcript file.
 
 
-File: docPQAXvi.info,  Node: ESS for JAGS,  Next: Mailing lists/bug reports,  Prev: ESS for BUGS,  Up: Top
+File: docJW1eQs.info,  Node: ESS for JAGS,  Next: Mailing lists/bug reports,  Prev: ESS for BUGS,  Up: Top
 
 15 ESS for JAGS
 ***************
@@ -4469,7 +4469,7 @@ useful to refresh the '.jog' if the batch process over-writes or appends
 it.
 
 
-File: docPQAXvi.info,  Node: Mailing lists/bug reports,  Next: Customization,  Prev: ESS for JAGS,  Up: Top
+File: docJW1eQs.info,  Node: Mailing lists/bug reports,  Next: Customization,  Prev: ESS for JAGS,  Up: Top
 
 16 Bugs and Bug Reporting, Mailing Lists
 ****************************************
@@ -4482,7 +4482,7 @@ File: docPQAXvi.info,  Node: Mailing lists/bug reports,  Next: Customization,  P
 * Help with Emacs::
 
 
-File: docPQAXvi.info,  Node: Bugs,  Next: Reporting Bugs,  Up: Mailing lists/bug reports
+File: docJW1eQs.info,  Node: Bugs,  Next: Reporting Bugs,  Up: Mailing lists/bug reports
 
 16.1 Bugs
 =========
@@ -4522,7 +4522,7 @@ File: docPQAXvi.info,  Node: Bugs,  Next: Reporting Bugs,  Up: Mailing lists/bug
      'R-customize-alist'.
 
 
-File: docPQAXvi.info,  Node: Reporting Bugs,  Next: Mailing Lists,  Prev: Bugs,  Up: Mailing lists/bug reports
+File: docJW1eQs.info,  Node: Reporting Bugs,  Next: Mailing Lists,  Prev: Bugs,  Up: Mailing lists/bug reports
 
 16.2 Reporting Bugs
 ===================
@@ -4547,7 +4547,7 @@ containing debug information; send us that buffer.
 donations are also more than welcome.
 
 
-File: docPQAXvi.info,  Node: Mailing Lists,  Next: Help with Emacs,  Prev: Reporting Bugs,  Up: Mailing lists/bug reports
+File: docJW1eQs.info,  Node: Mailing Lists,  Next: Help with Emacs,  Prev: Reporting Bugs,  Up: Mailing lists/bug reports
 
 16.3 Mailing Lists
 ==================
@@ -4567,7 +4567,7 @@ this is a fairly low-volume mailing list.
    * posting small patches to ESS.
 
 
-File: docPQAXvi.info,  Node: Help with Emacs,  Prev: Mailing Lists,  Up: Mailing lists/bug reports
+File: docJW1eQs.info,  Node: Help with Emacs,  Prev: Mailing Lists,  Up: Mailing lists/bug reports
 
 16.4 Help with Emacs
 ====================
@@ -4580,7 +4580,7 @@ Emacs FAQs (try 'M-x view-emacs-faq') and EmacsWiki
 mailing list about issues that are not specific to ESS.
 
 
-File: docPQAXvi.info,  Node: Customization,  Next: Indices,  Prev: Mailing lists/bug reports,  Up: Top
+File: docJW1eQs.info,  Node: Customization,  Next: Indices,  Prev: Mailing lists/bug reports,  Up: Top
 
 Appendix A Customizing ESS
 **************************
@@ -4598,7 +4598,7 @@ all the ESS variables that can be customized.  Variables are grouped by
 subject to make it easy to find related variables.
 
 
-File: docPQAXvi.info,  Node: Indices,  Prev: Customization,  Up: Top
+File: docJW1eQs.info,  Node: Indices,  Prev: Customization,  Up: Top
 
 Indices
 *******
@@ -4611,7 +4611,7 @@ Indices
 * Concept index::
 
 
-File: docPQAXvi.info,  Node: Key index,  Next: Function and program index,  Up: Indices
+File: docJW1eQs.info,  Node: Key index,  Next: Function and program index,  Up: Indices
 
 Key index
 =========
@@ -4690,7 +4690,7 @@ Key index
 * TAB:                                   Indenting.            (line 35)
 
 
-File: docPQAXvi.info,  Node: Function and program index,  Next: Variable index,  Prev: Key index,  Up: Indices
+File: docJW1eQs.info,  Node: Function and program index,  Next: Variable index,  Prev: Key index,  Up: Indices
 
 Function and program index
 ==========================
@@ -4828,7 +4828,7 @@ Function and program index
                                                               (line   6)
 
 
-File: docPQAXvi.info,  Node: Variable index,  Next: Concept index,  Prev: Function and program index,  Up: Indices
+File: docJW1eQs.info,  Node: Variable index,  Next: Concept index,  Prev: Function and program index,  Up: Indices
 
 Variable index
 ==============
@@ -4885,7 +4885,7 @@ Variable index
                                                                (line 82)
 
 
-File: docPQAXvi.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: docJW1eQs.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 Concept Index
 =============
