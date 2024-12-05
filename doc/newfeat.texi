@@ -1,8 +1,19 @@
 @comment @itemize @w{}
 @comment @item
 
-Changes and New Features in development version:
+Changes and New Features in pre-release (target=24.12.0) version:
 @itemize @bullet
+
+@item polymode: In our transition from literate libraries 
+(such as noweb documented below with respect to 19.04), we are now
+requiring the polymode packages as a more suitable replacement.
+Furthermore, we require the related polymodes including packages for
+poly-R, poly-noweb and poly-markdown. The package polymode itself, and
+the polymodes packages, are all on MELPA rather than ELPA. Therefore,
+you need to add MELPA to the list of installation archives as follows.
+@samp{(add-to-list 'package-archives '("melpa-stable" .
+https://stable.melpa.org/packages/))} This will allow @kbd{M-x
+package-install} to proceed naturally.
 
 @item ESS[R]: The shorthand notation for lambda functions
 and the question mark are now fontified as keywords.
@@ -24,7 +35,7 @@ Changes and New Features in 24.01.0:
 @item :package-version is now set to "VERSION" in ess-custom.
 By make this is replaced with "24.01.0" (or similar).
 
-@item Better ``collaboration'' with org-mode
+@item Better ``collaboration'' with org-mode.
 Now @code{ess-request-a-process} obeys @code{ess-gen-proc-buffer-name-function},
 thanks to Ihor Radchenko.
 @end itemize
