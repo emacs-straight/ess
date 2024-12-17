@@ -1,4 +1,4 @@
-This is docThhxOi.info, produced by makeinfo version 6.8 from ess.texi.
+This is doc9ZIYOV.info, produced by makeinfo version 6.8 from ess.texi.
 
 INFO-DIR-SECTION Emacs
 START-INFO-DIR-ENTRY
@@ -9,7 +9,7 @@ ESS -- Emacs Speaks Statistics
 ******************************
 
 
-File: docThhxOi.info,  Node: Top,  Next: Introduction,  Up: (dir)
+File: doc9ZIYOV.info,  Node: Top,  Next: Introduction,  Up: (dir)
 
 ESS: Emacs Speaks Statistics
 ****************************
@@ -72,7 +72,7 @@ the file COPYING in the same directory as this file for more details.
 * Indices::
 
 
-File: docThhxOi.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
+File: doc9ZIYOV.info,  Node: Introduction,  Next: Installation,  Prev: Top,  Up: Top
 
 1 Introduction to ESS
 *********************
@@ -133,7 +133,7 @@ specified source directories.
 * Manual::                      How to read this manual
 
 
-File: docThhxOi.info,  Node: Features,  Next: New features,  Up: Introduction
+File: doc9ZIYOV.info,  Node: Features,  Next: New features,  Up: Introduction
 
 1.1 Why should I use ESS?
 =========================
@@ -155,7 +155,7 @@ means, visit <https://www.gnu.org/philosophy/free-sw.html>.
 * Current Features::
 
 
-File: docThhxOi.info,  Node: Current Features,  Up: Features
+File: doc9ZIYOV.info,  Node: Current Features,  Up: Features
 
 1.1.1 Features Overview
 -----------------------
@@ -244,26 +244,30 @@ transcript files, including:
      unnecessary prompts.  *Note Transcript resubmit::.
 
 
-File: docThhxOi.info,  Node: New features,  Next: Credits,  Prev: Features,  Up: Introduction
+File: doc9ZIYOV.info,  Node: New features,  Next: Credits,  Prev: Features,  Up: Introduction
 
 1.2 New features in ESS
 =======================
 
-Changes and New Features in pre-release (target=24.12.0) version:
+Changes and New Features in 24.12.0:
 
    * polymode: In our transition from literate libraries (such as noweb
      documented below with respect to 19.04), we now recommend the
      polymode packages as a more suitable replacement.  Furthermore, we
-     suggest the related polymodes including poly-R, poly-noweb and
-     poly-markdown.  The package polymode itself, as well as the
-     polymodes packages, are all on MELPA rather than ELPA. Therefore,
-     you need to add MELPA to the list of installation archives as
-     follows.  '(add-to-list 'package-archives '("melpa-stable" .
-     "https://stable.melpa.org/packages/"))' for 'M-x package-install'
+     suggest the related polymodes including poly-noweb, poly-markdown
+     and poly-R (installed in that order).  The package polymode itself,
+     as well as the polymodes packages, are all on MELPA rather than
+     ELPA. Therefore, you need to add MELPA to the list of installation
+     archives as follows.  '(add-to-list 'package-archives
+     '("melpa-stable" . "https://stable.melpa.org/packages/"))' for 'M-x
+     package-install'
 
    * ESS[R]: The shorthand notation for lambda functions and the
      question mark are now fontified as keywords.  Contributed by Maxime
      Pettinger.
+
+   * ESS[SAS]: Developed new comprehensive lists of PROCs and functions
+     for syntax highlighting.  See 'etc/proc.sas' and 'etc/func.sas'.
 
    Changes and New Features in 24.01.1:
 
@@ -819,7 +823,7 @@ documentation for more detail:
    * ESS[Julia]: Added getwd and setwd generic commands
 
 
-File: docThhxOi.info,  Node: Credits,  Next: Manual,  Prev: New features,  Up: Introduction
+File: doc9ZIYOV.info,  Node: Credits,  Next: Manual,  Prev: New features,  Up: Introduction
 
 1.3 Authors of and contributors to ESS
 ======================================
@@ -899,7 +903,7 @@ Windows.
    * J. Alexander Branham (mailto:alex.branham@gmail.com)
 
 
-File: docThhxOi.info,  Node: Manual,  Prev: Credits,  Up: Introduction
+File: doc9ZIYOV.info,  Node: Manual,  Prev: Credits,  Up: Introduction
 
 1.4 How to read this manual
 ===========================
@@ -951,7 +955,7 @@ ESS to your taste, but it is recommended that you defer this section
 until you are more familiar with ESS.
 
 
-File: docThhxOi.info,  Node: Installation,  Next: Interactive ESS,  Prev: Introduction,  Up: Top
+File: doc9ZIYOV.info,  Node: Installation,  Next: Interactive ESS,  Prev: Introduction,  Up: Top
 
 2 Installing ESS on your system
 *******************************
@@ -978,7 +982,7 @@ you.  See *note Activating and Loading ESS:: for more details.
 * Check Installation::
 
 
-File: docThhxOi.info,  Node: Installing from a third-party repository,  Next: Installing from source
+File: doc9ZIYOV.info,  Node: Installing from a third-party repository,  Next: Installing from source
 
 2.1 Installing from a third-party repository
 ============================================
@@ -998,7 +1002,7 @@ in each Emacs session.  See *note Activating and Loading ESS::.
 Depending on install method, this may be taken care of automatically.
 
 
-File: docThhxOi.info,  Node: Installing from source,  Next: Activating and Loading ESS,  Prev: Installing from a third-party repository
+File: doc9ZIYOV.info,  Node: Installing from source,  Next: Activating and Loading ESS,  Prev: Installing from a third-party repository
 
 2.2 Installing from source
 ==========================
@@ -1040,7 +1044,7 @@ path in 'Makeconf'.  The necessary code and instructions are commented
 in that file.
 
 
-File: docThhxOi.info,  Node: Activating and Loading ESS,  Next: Check Installation,  Prev: Installing from source
+File: doc9ZIYOV.info,  Node: Activating and Loading ESS,  Next: Check Installation,  Prev: Installing from source
 
 2.3 Activating and Loading ESS
 ==============================
@@ -1073,7 +1077,7 @@ from source, you must have run 'make'):
 features or only R related features.
 
 
-File: docThhxOi.info,  Node: Check Installation,  Prev: Activating and Loading ESS
+File: doc9ZIYOV.info,  Node: Check Installation,  Prev: Activating and Loading ESS
 
 2.4 Check Installation
 ======================
@@ -1082,7 +1086,7 @@ Restart Emacs and check that ESS was loaded from a correct location with
 'M-x ess-version'.
 
 
-File: docThhxOi.info,  Node: Interactive ESS,  Next: Entering commands,  Prev: Installation,  Up: Top
+File: doc9ZIYOV.info,  Node: Interactive ESS,  Next: Entering commands,  Prev: Installation,  Up: Top
 
 3 Interacting with statistical programs
 ***************************************
@@ -1105,7 +1109,7 @@ statistical programs.
 * Controlling buffer display::
 
 
-File: docThhxOi.info,  Node: Starting up,  Next: Multiple ESS processes,  Up: Interactive ESS
+File: doc9ZIYOV.info,  Node: Starting up,  Next: Multiple ESS processes,  Up: Interactive ESS
 
 3.1 Starting an ESS process
 ===========================
@@ -1126,7 +1130,7 @@ for interacting with the ESS process, and you can start entering
 commands.
 
 
-File: docThhxOi.info,  Node: Multiple ESS processes,  Next: ESS processes on Remote Computers,  Prev: Starting up,  Up: Interactive ESS
+File: doc9ZIYOV.info,  Node: Multiple ESS processes,  Next: ESS processes on Remote Computers,  Prev: Starting up,  Up: Interactive ESS
 
 3.2 Running more than one ESS process
 =====================================
@@ -1149,7 +1153,7 @@ completion is provided over the names of all running processes.  This is
 a good command to consider binding to a global key.
 
 
-File: docThhxOi.info,  Node: ESS processes on Remote Computers,  Next: Customizing startup,  Prev: Multiple ESS processes,  Up: Interactive ESS
+File: doc9ZIYOV.info,  Node: ESS processes on Remote Computers,  Next: Customizing startup,  Prev: Multiple ESS processes,  Up: Interactive ESS
 
 3.3 ESS processes on Remote Computers
 =====================================
@@ -1236,7 +1240,7 @@ convert it to an ESS buffer and allow you to use the ESS commands with
 it.
 
 
-File: docThhxOi.info,  Node: Customizing startup,  Next: Controlling buffer display,  Prev: ESS processes on Remote Computers,  Up: Interactive ESS
+File: doc9ZIYOV.info,  Node: Customizing startup,  Next: Controlling buffer display,  Prev: ESS processes on Remote Computers,  Up: Interactive ESS
 
 3.4 Changing the startup actions
 ================================
@@ -1298,7 +1302,7 @@ buffer.  If you want it to be shown, set 'ess-auto-width-visible' to a
 non-nil value.
 
 
-File: docThhxOi.info,  Node: Controlling buffer display,  Prev: Customizing startup,  Up: Interactive ESS
+File: doc9ZIYOV.info,  Node: Controlling buffer display,  Prev: Customizing startup,  Up: Interactive ESS
 
 3.5 Controlling buffer display
 ==============================
@@ -1362,7 +1366,7 @@ so like this:
              ("\\.R$" . ((display-buffer-same-window) (inhibit-same-window . nil)))))
 
 
-File: docThhxOi.info,  Node: Entering commands,  Next: Evaluating code,  Prev: Interactive ESS,  Up: Top
+File: doc9ZIYOV.info,  Node: Entering commands,  Next: Evaluating code,  Prev: Interactive ESS,  Up: Top
 
 4 Interacting with the ESS process
 **********************************
@@ -1388,7 +1392,7 @@ ease of typing.
 * Other::                       Other commands provided by inferior-ESS
 
 
-File: docThhxOi.info,  Node: Command-line editing,  Next: Transcript,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: Command-line editing,  Next: Transcript,  Up: Entering commands
 
 4.1 Entering commands and fixing mistakes
 =========================================
@@ -1425,7 +1429,7 @@ mistakes:
 input.
 
 
-File: docThhxOi.info,  Node: Transcript,  Next: Command History,  Prev: Command-line editing,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: Transcript,  Next: Command History,  Prev: Command-line editing,  Up: Entering commands
 
 4.2 Manipulating the transcript
 ===============================
@@ -1461,7 +1465,7 @@ information about page commands, *note Pages: (emacs)Pages.
 * Saving transcripts::          Keeping a record of your R session
 
 
-File: docThhxOi.info,  Node: Last command,  Next: Process buffer motion,  Up: Transcript
+File: doc9ZIYOV.info,  Node: Last command,  Next: Process buffer motion,  Up: Transcript
 
 4.2.1 Manipulating the output from the last command
 ---------------------------------------------------
@@ -1489,7 +1493,7 @@ the last command to the current prompt.  Use this command judiciously to
 keep your transcript to a more manageable size.
 
 
-File: docThhxOi.info,  Node: Process buffer motion,  Next: Transcript resubmit,  Prev: Last command,  Up: Transcript
+File: doc9ZIYOV.info,  Node: Process buffer motion,  Next: Transcript resubmit,  Prev: Last command,  Up: Transcript
 
 4.2.2 Viewing older commands
 ----------------------------
@@ -1525,7 +1529,7 @@ the pattern.
      argument; REGEXP is prompted for in the minibuffer.
 
 
-File: docThhxOi.info,  Node: Transcript resubmit,  Next: Saving transcripts,  Prev: Process buffer motion,  Up: Transcript
+File: doc9ZIYOV.info,  Node: Transcript resubmit,  Next: Saving transcripts,  Prev: Process buffer motion,  Up: Transcript
 
 4.2.3 Re-submitting commands from the transcript
 ------------------------------------------------
@@ -1564,7 +1568,7 @@ more sophisticated mechanism, however, which is described in *note
 Command History::.
 
 
-File: docThhxOi.info,  Node: Saving transcripts,  Prev: Transcript resubmit,  Up: Transcript
+File: doc9ZIYOV.info,  Node: Saving transcripts,  Prev: Transcript resubmit,  Up: Transcript
 
 4.2.4 Keeping a record of your R session
 ----------------------------------------
@@ -1597,7 +1601,7 @@ transcript, leaving only source code suitable for inclusion in files
 'source()'-able from R. *note Transcript Mode: Clean.
 
 
-File: docThhxOi.info,  Node: Command History,  Next: History expansion,  Prev: Transcript,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: Command History,  Next: History expansion,  Prev: Transcript,  Up: Entering commands
 
 4.3 Command History
 ===================
@@ -1679,7 +1683,7 @@ customization cannot be part of 'ESS' itself.
 * Saving History::
 
 
-File: docThhxOi.info,  Node: Saving History,  Up: Command History
+File: doc9ZIYOV.info,  Node: Saving History,  Up: Command History
 
 4.3.1 Saving the command history
 --------------------------------
@@ -1702,7 +1706,7 @@ or if you prefer only one global command history file:
 in your Emacs configuration file.
 
 
-File: docThhxOi.info,  Node: History expansion,  Next: Hot keys,  Prev: Command History,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: History expansion,  Next: Hot keys,  Prev: Command History,  Up: Entering commands
 
 4.4 References to historical commands
 =====================================
@@ -1788,7 +1792,7 @@ press <RET> to execute.
 'data', type '!?data SPC TAB RET'.
 
 
-File: docThhxOi.info,  Node: Hot keys,  Next: Statistical Process running in ESS?,  Prev: History expansion,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: Hot keys,  Next: Statistical Process running in ESS?,  Prev: History expansion,  Up: Entering commands
 
 4.5 Hot keys for common commands
 ================================
@@ -1869,7 +1873,7 @@ process buffer or in a separate buffer, as indicated:
      killed.
 
 
-File: docThhxOi.info,  Node: Statistical Process running in ESS?,  Next: Emacsclient,  Prev: Hot keys,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: Statistical Process running in ESS?,  Next: Emacsclient,  Prev: Hot keys,  Up: Entering commands
 
 4.6 Is the Statistical Process running under ESS?
 =================================================
@@ -1900,7 +1904,7 @@ set these other values since the R language program is not under the
 control of ESS.
 
 
-File: docThhxOi.info,  Node: Emacsclient,  Next: Other,  Prev: Statistical Process running in ESS?,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: Emacsclient,  Next: Other,  Prev: Statistical Process running in ESS?,  Up: Entering commands
 
 4.7 Using emacsclient
 =====================
@@ -1917,7 +1921,7 @@ definition of the function is updated.  Using 'edit()' rather than
 temporary Emacs buffer.
 
 
-File: docThhxOi.info,  Node: Other,  Prev: Emacsclient,  Up: Entering commands
+File: doc9ZIYOV.info,  Node: Other,  Prev: Emacsclient,  Up: Entering commands
 
 4.8 Other commands provided by inferior-ESS
 ===========================================
@@ -1945,7 +1949,7 @@ The following commands are also available in the process buffer:
 (emacs)Shell Mode::.
 
 
-File: docThhxOi.info,  Node: Evaluating code,  Next: Transcript Mode,  Prev: Entering commands,  Up: Top
+File: doc9ZIYOV.info,  Node: Evaluating code,  Next: Transcript Mode,  Prev: Entering commands,  Up: Top
 
 5 Sending code to the ESS process
 *********************************
@@ -2032,7 +2036,7 @@ output reaches the bottom of the window, you will need to set the
 variable 'comint-move-point-for-output' to ''others' or 't'.
 
 
-File: docThhxOi.info,  Node: Transcript Mode,  Next: Editing objects,  Prev: Evaluating code,  Up: Top
+File: doc9ZIYOV.info,  Node: Transcript Mode,  Next: Editing objects,  Prev: Evaluating code,  Up: Top
 
 6 Manipulating saved transcript files
 *************************************
@@ -2058,7 +2062,7 @@ commands or with 'C-c C-p' and 'C-c C-n'.
 * Clean::                       Cleaning transcript files
 
 
-File: docThhxOi.info,  Node: Resubmit,  Next: Clean,  Up: Transcript Mode
+File: doc9ZIYOV.info,  Node: Resubmit,  Next: Clean,  Up: Transcript Mode
 
 6.1 Resubmitting commands from the transcript file
 ==================================================
@@ -2085,7 +2089,7 @@ when the cursor is on a command line in the transcript; the prompt is
 automatically removed before the command is submitted.
 
 
-File: docThhxOi.info,  Node: Clean,  Prev: Resubmit,  Up: Transcript Mode
+File: doc9ZIYOV.info,  Node: Clean,  Prev: Resubmit,  Up: Transcript Mode
 
 6.2 Cleaning transcript files
 =============================
@@ -2107,7 +2111,7 @@ directly (*note Evaluating code::) using the code evaluation commands
 from R mode, also available in R Transcript Mode.
 
 
-File: docThhxOi.info,  Node: Editing objects,  Next: Help,  Prev: Transcript Mode,  Up: Top
+File: doc9ZIYOV.info,  Node: Editing objects,  Next: Help,  Prev: Transcript Mode,  Up: Top
 
 7 Editing objects and functions
 *******************************
@@ -2131,7 +2135,7 @@ Error-checking is performed when R code is loaded into the ESS process.
 * Source Directories::          Names and locations of dump files
 
 
-File: docThhxOi.info,  Node: Edit buffer,  Next: Loading,  Up: Editing objects
+File: doc9ZIYOV.info,  Node: Edit buffer,  Next: Loading,  Up: Editing objects
 
 7.1 Creating or modifying R objects
 ===================================
@@ -2172,7 +2176,7 @@ prefix argument to 'ess-dump-object-into-edit-buffer' by typing 'C-u C-c
 C-e C-d'.
 
 
-File: docThhxOi.info,  Node: Loading,  Next: Error Checking,  Prev: Edit buffer,  Up: Editing objects
+File: doc9ZIYOV.info,  Node: Loading,  Next: Error Checking,  Prev: Edit buffer,  Up: Editing objects
 
 7.2 Loading source files into the ESS process
 =============================================
@@ -2193,7 +2197,7 @@ will then be loaded, and if it loads successfully you will be returned
 to the ESS process.
 
 
-File: docThhxOi.info,  Node: Error Checking,  Next: Indenting,  Prev: Loading,  Up: Editing objects
+File: doc9ZIYOV.info,  Node: Error Checking,  Next: Indenting,  Prev: Loading,  Up: Editing objects
 
 7.3 Detecting errors in source files
 ====================================
@@ -2214,7 +2218,7 @@ behavior (and avoid jumping to the file when there _is_ a syntax error)
 by passing a prefix argument to 'ess-parse-errors' with 'C-u C-c `'.
 
 
-File: docThhxOi.info,  Node: Indenting,  Next: Other edit buffer commands,  Prev: Error Checking,  Up: Editing objects
+File: doc9ZIYOV.info,  Node: Indenting,  Next: Other edit buffer commands,  Prev: Error Checking,  Up: Editing objects
 
 7.4 Indenting and formatting R code
 ===================================
@@ -2285,7 +2289,7 @@ maintained in the source code as comments *Note roxygen2::.
 * Styles:: Changing styles for indentation and alignment
 
 
-File: docThhxOi.info,  Node: Styles,  Up: Indenting
+File: doc9ZIYOV.info,  Node: Styles,  Up: Indenting
 
 7.4.1 Changing styles for code indentation and alignment
 --------------------------------------------------------
@@ -2337,7 +2341,7 @@ variable and ensure that the last line of the ':set' declaration calls
 Finally, add '(setq ess-style 'MINE)' to use your new style.
 
 
-File: docThhxOi.info,  Node: Other edit buffer commands,  Next: Source Files,  Prev: Indenting,  Up: Editing objects
+File: doc9ZIYOV.info,  Node: Other edit buffer commands,  Next: Source Files,  Prev: Indenting,  Up: Editing objects
 
 7.5 Commands for motion, completion and more
 ============================================
@@ -2376,7 +2380,7 @@ C-v', edit another function with 'C-c C-e C-d' and of course 'C-c C-l'
 can be used to load a source file into R.
 
 
-File: docThhxOi.info,  Node: Source Files,  Next: Source Directories,  Prev: Other edit buffer commands,  Up: Editing objects
+File: doc9ZIYOV.info,  Node: Source Files,  Next: Source Directories,  Prev: Other edit buffer commands,  Up: Editing objects
 
 7.6 Maintaining R source files
 ==============================
@@ -2462,7 +2466,7 @@ if you happen to quit Emacs before correcting the error.
 'ess-keep-dump-files'.
 
 
-File: docThhxOi.info,  Node: Source Directories,  Prev: Source Files,  Up: Editing objects
+File: doc9ZIYOV.info,  Node: Source Directories,  Prev: Source Files,  Up: Editing objects
 
 7.7 Names and locations of dump files
 =====================================
@@ -2530,7 +2534,7 @@ directory.  If you choose not to, or the directory cannot be created,
 you will not be able to edit functions.
 
 
-File: docThhxOi.info,  Node: Help,  Next: Completion,  Prev: Editing objects,  Up: Top
+File: doc9ZIYOV.info,  Node: Help,  Next: Completion,  Prev: Editing objects,  Up: Top
 
 8 Reading help files
 ********************
@@ -2700,7 +2704,7 @@ by adding an entry in 'display-buffer-alist'; for examples, see *Note
 'ess-display-buffer-reuse-frame'.
 
 
-File: docThhxOi.info,  Node: Completion,  Next: Developing with ESS,  Prev: Help,  Up: Top
+File: doc9ZIYOV.info,  Node: Completion,  Next: Developing with ESS,  Prev: Help,  Up: Top
 
 9 Completion
 ************
@@ -2714,7 +2718,7 @@ File: docThhxOi.info,  Node: Completion,  Next: Developing with ESS,  Prev: Help
 * Icicles::
 
 
-File: docThhxOi.info,  Node: Object names,  Next: Function arguments,  Up: Completion
+File: doc9ZIYOV.info,  Node: Object names,  Next: Function arguments,  Up: Completion
 
 9.1 Completion of object names
 ==============================
@@ -2769,7 +2773,7 @@ complete an object you *know* is there), the command 'M-x ess-resynch'
 forces the _entire_ cache to be refreshed, which should fix the problem.
 
 
-File: docThhxOi.info,  Node: Function arguments,  Next: Minibuffer completion,  Prev: Object names,  Up: Completion
+File: doc9ZIYOV.info,  Node: Function arguments,  Next: Minibuffer completion,  Prev: Object names,  Up: Completion
 
 9.2 Completion of function arguments
 ====================================
@@ -2791,7 +2795,7 @@ suggests 'formula = ' rather than 'formula='), you can adjust
 arguments in the echo area whenever the point is inside a function call.
 
 
-File: docThhxOi.info,  Node: Minibuffer completion,  Next: Company,  Prev: Function arguments,  Up: Completion
+File: doc9ZIYOV.info,  Node: Minibuffer completion,  Next: Company,  Prev: Function arguments,  Up: Completion
 
 9.3 Minibuffer completion
 =========================
@@ -2803,7 +2807,7 @@ completion if the 'ido' package is available and the value of
 if this feature is not available for whatever reason.
 
 
-File: docThhxOi.info,  Node: Company,  Next: Icicles,  Prev: Minibuffer completion,  Up: Completion
+File: doc9ZIYOV.info,  Node: Company,  Next: Icicles,  Prev: Minibuffer completion,  Up: Completion
 
 9.4 Company
 ===========
@@ -2814,7 +2818,7 @@ company support, set 'ess-use-company' to 'nil'.  You can set it to
 ''script-only' to only activate company in R scripts.
 
 
-File: docThhxOi.info,  Node: Icicles,  Prev: Company,  Up: Completion
+File: doc9ZIYOV.info,  Node: Icicles,  Prev: Company,  Up: Completion
 
 9.5 Icicles
 ===========
@@ -2845,7 +2849,7 @@ to match an additional pattern (repeatable).  You can cycle among the
 matching candidates, choosing with 'RET' or 'mouse-2'.
 
 
-File: docThhxOi.info,  Node: Developing with ESS,  Next: Extras,  Prev: Completion,  Up: Top
+File: doc9ZIYOV.info,  Node: Developing with ESS,  Next: Extras,  Prev: Completion,  Up: Top
 
 10 Developing with ESS
 **********************
@@ -2860,7 +2864,7 @@ packages:
 * Namespaced Evaluation::               Develop your packages on the fly
 
 
-File: docThhxOi.info,  Node: ESS tracebug,  Next: Editing documentation,  Up: Developing with ESS
+File: doc9ZIYOV.info,  Node: ESS tracebug,  Next: Editing documentation,  Up: Developing with ESS
 
 10.1 ESS tracebug
 =================
@@ -2940,7 +2944,7 @@ English add the following line to your .Rprofile init file:
    Sys.setlocale("LC_MESSAGES", "C")
 
 
-File: docThhxOi.info,  Node: Getting started with tracebug,  Up: ESS tracebug
+File: doc9ZIYOV.info,  Node: Getting started with tracebug,  Up: ESS tracebug
 
 10.1.1 Getting started with tracebug
 ------------------------------------
@@ -2996,7 +3000,7 @@ window displays what the object is at any given time and automatically
 updates.  Quit the watch window with 'q'.
 
 
-File: docThhxOi.info,  Node: Editing documentation,  Next: Namespaced Evaluation,  Prev: ESS tracebug,  Up: Developing with ESS
+File: doc9ZIYOV.info,  Node: Editing documentation,  Next: Namespaced Evaluation,  Prev: ESS tracebug,  Up: Developing with ESS
 
 10.2 Editing documentation
 ==========================
@@ -3012,7 +3016,7 @@ roxygen2 package.
 * roxygen2::                     Loading source files into the ESS process
 
 
-File: docThhxOi.info,  Node: R documentation files,  Next: roxygen2,  Up: Editing documentation
+File: doc9ZIYOV.info,  Node: R documentation files,  Next: roxygen2,  Up: Editing documentation
 
 10.2.1 Editing R documentation (Rd) files
 -----------------------------------------
@@ -3106,7 +3110,7 @@ mode, add the following lines to one of your Emacs startup files:
                 (font-lock-mode 1)))
 
 
-File: docThhxOi.info,  Node: roxygen2,  Prev: R documentation files,  Up: Editing documentation
+File: doc9ZIYOV.info,  Node: roxygen2,  Prev: R documentation files,  Up: Editing documentation
 
 10.2.2 Editing roxygen2 documentation
 -------------------------------------
@@ -3211,7 +3215,7 @@ make roxygen2 editing more intuitive:
      string.
 
 
-File: docThhxOi.info,  Node: Namespaced Evaluation,  Prev: Editing documentation,  Up: Developing with ESS
+File: doc9ZIYOV.info,  Node: Namespaced Evaluation,  Prev: Editing documentation,  Up: Developing with ESS
 
 10.3 Namespaced Evaluation
 ==========================
@@ -3250,7 +3254,7 @@ package.  In such cases 'C-c C-t C-s' is your friend.
      package).
 
 
-File: docThhxOi.info,  Node: Extras,  Next: ESS for R,  Prev: Developing with ESS,  Up: Top
+File: doc9ZIYOV.info,  Node: Extras,  Next: ESS for R,  Prev: Developing with ESS,  Up: Top
 
 11 Other ESS features and tools
 *******************************
@@ -3273,7 +3277,7 @@ ESS has a few extra features, which didn't fit anywhere else.
 * Sweave and AUCTeX::           Support for Sweave in ESS and AUCTeX
 
 
-File: docThhxOi.info,  Node: ESS ElDoc,  Next: ESS Flymake,  Up: Extras
+File: doc9ZIYOV.info,  Node: ESS ElDoc,  Next: ESS Flymake,  Up: Extras
 
 11.1 ElDoc
 ==========
@@ -3308,7 +3312,7 @@ indifferent of the value of 'ess-eldoc-abbreviation-style'.  This way
 you can combine different filter levels with the truncation.
 
 
-File: docThhxOi.info,  Node: ESS Flymake,  Next: Handy commands,  Prev: ESS ElDoc,  Up: Extras
+File: doc9ZIYOV.info,  Node: ESS Flymake,  Next: Handy commands,  Prev: ESS ElDoc,  Up: Extras
 
 11.2 Flymake
 ============
@@ -3335,7 +3339,7 @@ package, available from CRAN.
      disable lintr's caching mechanism.
 
 
-File: docThhxOi.info,  Node: Handy commands,  Next: Highlighting,  Prev: ESS Flymake,  Up: Extras
+File: doc9ZIYOV.info,  Node: Handy commands,  Next: Highlighting,  Prev: ESS Flymake,  Up: Extras
 
 11.3 Handy commands
 ===================
@@ -3378,7 +3382,7 @@ interface to 'findFn' function in package 'sos'.  If package 'sos' is
 not found, ask user for interactive install.
 
 
-File: docThhxOi.info,  Node: Highlighting,  Next: Parens,  Prev: Handy commands,  Up: Extras
+File: doc9ZIYOV.info,  Node: Highlighting,  Next: Parens,  Prev: Handy commands,  Up: Extras
 
 11.4 Syntactic highlighting of buffers
 ======================================
@@ -3403,7 +3407,7 @@ you may modify if desired:
      source functions and reserved words.
 
 
-File: docThhxOi.info,  Node: Parens,  Next: Graphics,  Prev: Highlighting,  Up: Extras
+File: doc9ZIYOV.info,  Node: Parens,  Next: Graphics,  Prev: Highlighting,  Up: Extras
 
 11.5 Parenthesis matching
 =========================
@@ -3417,7 +3421,7 @@ putting this in your Emacs configuration file:
      (show-paren-mode)
 
 
-File: docThhxOi.info,  Node: Graphics,  Next: Imenu,  Prev: Parens,  Up: Extras
+File: doc9ZIYOV.info,  Node: Graphics,  Next: Imenu,  Prev: Parens,  Up: Extras
 
 11.6 Using graphics with ESS
 ============================
@@ -3437,7 +3441,7 @@ features for dealing with such plots.
 * winjava::                     Java Graphics Device
 
 
-File: docThhxOi.info,  Node: printer,  Next: X11,  Up: Graphics
+File: doc9ZIYOV.info,  Node: printer,  Next: X11,  Up: Graphics
 
 11.6.1 Using ESS with the 'printer()' driver
 --------------------------------------------
@@ -3454,7 +3458,7 @@ graphics immediately, but are stored until the 'show()' command is
 issued, which displays the current figure.
 
 
-File: docThhxOi.info,  Node: X11,  Next: winjava,  Prev: printer,  Up: Graphics
+File: doc9ZIYOV.info,  Node: X11,  Next: winjava,  Prev: printer,  Up: Graphics
 
 11.6.2 Using ESS with windowing devices
 ---------------------------------------
@@ -3464,7 +3468,7 @@ system.  Under X Windows, or X11, this requires that the DISPLAY
 environment variable be appropriately set.
 
 
-File: docThhxOi.info,  Node: winjava,  Prev: X11,  Up: Graphics
+File: doc9ZIYOV.info,  Node: winjava,  Prev: X11,  Up: Graphics
 
 11.6.3 Java Graphics Device
 ---------------------------
@@ -3480,7 +3484,7 @@ interaction and graphics within S-PLUS. (Thanks to Tim Hesterberg for
 this information.)
 
 
-File: docThhxOi.info,  Node: Imenu,  Next: Toolbar,  Prev: Graphics,  Up: Extras
+File: doc9ZIYOV.info,  Node: Imenu,  Next: Toolbar,  Prev: Graphics,  Up: Extras
 
 11.7 Imenu
 ==========
@@ -3499,7 +3503,7 @@ uses, check the value of 'imenu-generic-expression'.  This value is set
 by various ESS variables such as 'ess-imenu-S-generic-expression'.
 
 
-File: docThhxOi.info,  Node: Toolbar,  Next: Xref,  Prev: Imenu,  Up: Extras
+File: doc9ZIYOV.info,  Node: Toolbar,  Next: Xref,  Prev: Imenu,  Up: Extras
 
 11.8 Toolbar
 ============
@@ -3511,7 +3515,7 @@ present if your Emacs can display images.  *Note Customization::, for
 ways to change the toolbar.
 
 
-File: docThhxOi.info,  Node: Xref,  Next: Rdired,  Prev: Toolbar,  Up: Extras
+File: doc9ZIYOV.info,  Node: Xref,  Next: Rdired,  Prev: Toolbar,  Up: Extras
 
 11.9 Xref
 =========
@@ -3522,7 +3526,7 @@ Emacs versions 25.1 and higher.  For how to use this feature, see *Note
 (emacs)Xref::.
 
 
-File: docThhxOi.info,  Node: Rdired,  Next: Package listing,  Prev: Xref,  Up: Extras
+File: doc9ZIYOV.info,  Node: Rdired,  Next: Package listing,  Prev: Xref,  Up: Extras
 
 11.10 Rdired
 ============
@@ -3554,7 +3558,7 @@ the object, 'v' will view it, and 'd' will mark the object for deletion
 ('x' will actually perform the deletion).
 
 
-File: docThhxOi.info,  Node: Package listing,  Next: Org,  Prev: Rdired,  Up: Extras
+File: doc9ZIYOV.info,  Node: Package listing,  Next: Org,  Prev: Rdired,  Up: Extras
 
 11.11 Package listing
 =====================
@@ -3594,7 +3598,7 @@ separate buffer and window, in 'ess-rutils-mode', providing useful key
 bindings in this mode (type '?' in this buffer for a description).
 
 
-File: docThhxOi.info,  Node: Org,  Next: Sweave and AUCTeX,  Prev: Package listing,  Up: Extras
+File: doc9ZIYOV.info,  Node: Org,  Next: Sweave and AUCTeX,  Prev: Package listing,  Up: Extras
 
 11.12 Interaction with Org mode
 ===============================
@@ -3613,7 +3617,7 @@ data can be passed from the Org document (e.g.  from a table) to the ESS
 R process.  (This section contributed by Dan Davison and Eric Schulte.)
 
 
-File: docThhxOi.info,  Node: Sweave and AUCTeX,  Prev: Org,  Up: Extras
+File: doc9ZIYOV.info,  Node: Sweave and AUCTeX,  Prev: Org,  Up: Extras
 
 11.13 Support for Sweave in ESS and AUCTeX
 ==========================================
@@ -3669,7 +3673,7 @@ cases, the process can be monitored with 'C-c C-l'
 ('TeX-view'), as usual in AUCTeX.
 
 
-File: docThhxOi.info,  Node: ESS for R,  Next: ESS for SAS,  Prev: Extras,  Up: Top
+File: doc9ZIYOV.info,  Node: ESS for R,  Next: ESS for SAS,  Prev: Extras,  Up: Top
 
 12 Overview of ESS features for the S family
 ********************************************
@@ -3682,7 +3686,7 @@ File: docThhxOi.info,  Node: ESS for R,  Next: ESS for SAS,  Prev: Extras,  Up: 
 * Example ESS usage::
 
 
-File: docThhxOi.info,  Node: ESS(R)--Editing files,  Next: iESS(R)--Inferior ESS processes,  Up: ESS for R
+File: doc9ZIYOV.info,  Node: ESS(R)--Editing files,  Next: iESS(R)--Inferior ESS processes,  Up: ESS for R
 
 12.1 ESS[R]-Editing files
 =========================
@@ -3694,7 +3698,7 @@ the current buffer into R mode.  However, one will have to start up an
 inferior process to take advantage of the interactive features.
 
 
-File: docThhxOi.info,  Node: iESS(R)--Inferior ESS processes,  Next: Philosophies for using ESS(R),  Prev: ESS(R)--Editing files,  Up: ESS for R
+File: doc9ZIYOV.info,  Node: iESS(R)--Inferior ESS processes,  Next: Philosophies for using ESS(R),  Prev: ESS(R)--Editing files,  Up: ESS for R
 
 12.2 iESS[R]-Inferior ESS processes
 ===================================
@@ -3751,7 +3755,7 @@ version of R that it found.  (ESS examines the date in the first line of
 information from 'R --version' to determine which is newest.)
 
 
-File: docThhxOi.info,  Node: Philosophies for using ESS(R),  Next: Example ESS usage,  Prev: iESS(R)--Inferior ESS processes,  Up: ESS for R
+File: doc9ZIYOV.info,  Node: Philosophies for using ESS(R),  Next: Example ESS usage,  Prev: iESS(R)--Inferior ESS processes,  Up: ESS for R
 
 12.3 Philosophies for using ESS[R]
 ==================================
@@ -3773,7 +3777,7 @@ following lines to your Emacs configuration file:
      (setq ess-mode-silently-save nil)
 
 
-File: docThhxOi.info,  Node: Example ESS usage,  Prev: Philosophies for using ESS(R),  Up: ESS for R
+File: doc9ZIYOV.info,  Node: Example ESS usage,  Prev: Philosophies for using ESS(R),  Up: ESS for R
 
 12.4 Example ESS usage
 ======================
@@ -3826,7 +3830,7 @@ Comments as to what should be happening are prefixed by "##".
 
 
 
-File: docThhxOi.info,  Node: ESS for SAS,  Next: ESS for BUGS,  Prev: ESS for R,  Up: Top
+File: doc9ZIYOV.info,  Node: ESS for SAS,  Next: ESS for BUGS,  Prev: ESS for R,  Up: Top
 
 13 ESS for SAS
 **************
@@ -3849,7 +3853,7 @@ ESS[SAS].  The user interface of ESS[SAS] has similarities with ESS[S]
 and the SAS Display Manager.
 
 
-File: docThhxOi.info,  Node: ESS(SAS)--Design philosophy,  Next: ESS(SAS)--Editing files,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: ESS(SAS)--Design philosophy,  Next: ESS(SAS)--Editing files,  Up: ESS for SAS
 
 13.1 ESS[SAS]-Design philosophy
 ===============================
@@ -3870,7 +3874,7 @@ SAS programs is supported.
      appealing to advanced ESS[SAS] users.
 
 
-File: docThhxOi.info,  Node: ESS(SAS)--Editing files,  Next: ESS(SAS)--TAB key,  Prev: ESS(SAS)--Design philosophy,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: ESS(SAS)--Editing files,  Next: ESS(SAS)--TAB key,  Prev: ESS(SAS)--Design philosophy,  Up: ESS for SAS
 
 13.2 ESS[SAS]-Editing files
 ===========================
@@ -3907,7 +3911,7 @@ single/double quotes in 'CARDS' data lines are *NOT* ignored; in an
 iterative 'DO' statement, 'TO' and 'BY' are not highlighted.
 
 
-File: docThhxOi.info,  Node: ESS(SAS)--TAB key,  Next: ESS(SAS)--Batch SAS processes,  Prev: ESS(SAS)--Editing files,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: ESS(SAS)--TAB key,  Next: ESS(SAS)--Batch SAS processes,  Prev: ESS(SAS)--Editing files,  Up: ESS for SAS
 
 13.3 ESS[SAS]-<TAB> key
 =======================
@@ -3934,7 +3938,7 @@ line in your initialization file prior to a 'require'/'load':
 and the stops are defined by 'ess-sas-tab-stop-list'.
 
 
-File: docThhxOi.info,  Node: ESS(SAS)--Batch SAS processes,  Next: ESS(SAS)--Function keys for batch processing,  Prev: ESS(SAS)--TAB key,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: ESS(SAS)--Batch SAS processes,  Next: ESS(SAS)--Function keys for batch processing,  Prev: ESS(SAS)--TAB key,  Up: ESS for SAS
 
 13.4 ESS[SAS]-Batch SAS processes
 =================================
@@ -4037,7 +4041,7 @@ the first error message, if any.
      <F3> (<F8>)
 
 
-File: docThhxOi.info,  Node: ESS(SAS)--Function keys for batch processing,  Next: iESS(SAS)--Interactive SAS processes,  Prev: ESS(SAS)--Batch SAS processes,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: ESS(SAS)--Function keys for batch processing,  Next: iESS(SAS)--Interactive SAS processes,  Prev: ESS(SAS)--Batch SAS processes,  Up: ESS for SAS
 
 13.5 ESS[SAS]-Function keys for batch processing
 ================================================
@@ -4216,7 +4220,7 @@ landscape (first line for "global" key mapping, second for "local"):
      (define-key sas-mode-local-map [(control f2)] 'ess-sas-rtf-a4-landscape)
 
 
-File: docThhxOi.info,  Node: iESS(SAS)--Interactive SAS processes,  Next: iESS(SAS)--Common problems,  Prev: ESS(SAS)--Function keys for batch processing,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: iESS(SAS)--Interactive SAS processes,  Next: iESS(SAS)--Common problems,  Prev: ESS(SAS)--Function keys for batch processing,  Up: ESS for SAS
 
 13.6 iESS[SAS]-Interactive SAS processes
 ========================================
@@ -4300,7 +4304,7 @@ for monitoring output!
    Troubleshooting: *Note iESS(SAS)--Common problems::.
 
 
-File: docThhxOi.info,  Node: iESS(SAS)--Common problems,  Next: ESS(SAS)--Graphics,  Prev: iESS(SAS)--Interactive SAS processes,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: iESS(SAS)--Common problems,  Next: ESS(SAS)--Graphics,  Prev: iESS(SAS)--Interactive SAS processes,  Up: ESS for SAS
 
 13.7 iESS[SAS]-Common problems
 ==============================
@@ -4330,7 +4334,7 @@ File: docThhxOi.info,  Node: iESS(SAS)--Common problems,  Next: ESS(SAS)--Graphi
 appears before the directory in which the 'sas' shell script appears.
 
 
-File: docThhxOi.info,  Node: ESS(SAS)--Graphics,  Next: ESS(SAS)--Windows,  Prev: iESS(SAS)--Common problems,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: ESS(SAS)--Graphics,  Next: ESS(SAS)--Windows,  Prev: iESS(SAS)--Common problems,  Up: ESS for SAS
 
 13.8 ESS[SAS]-Graphics
 ======================
@@ -4350,7 +4354,7 @@ on screen, for example:
      run;
 
 
-File: docThhxOi.info,  Node: ESS(SAS)--Windows,  Prev: ESS(SAS)--Graphics,  Up: ESS for SAS
+File: doc9ZIYOV.info,  Node: ESS(SAS)--Windows,  Prev: ESS(SAS)--Graphics,  Up: ESS for SAS
 
 13.9 ESS[SAS]-Windows
 =====================
@@ -4368,7 +4372,7 @@ File: docThhxOi.info,  Node: ESS(SAS)--Windows,  Prev: ESS(SAS)--Graphics,  Up: 
      'submit-region' or paste them into SAS Display Manager.
 
 
-File: docThhxOi.info,  Node: ESS for BUGS,  Next: ESS for JAGS,  Prev: ESS for SAS,  Up: Top
+File: doc9ZIYOV.info,  Node: ESS for BUGS,  Next: ESS for JAGS,  Prev: ESS for SAS,  Up: Top
 
 14 ESS for BUGS
 ***************
@@ -4410,7 +4414,7 @@ The '.bog' extension is used for BUGS log files.  The command line
 generated by ESS creates the '.bog' transcript file.
 
 
-File: docThhxOi.info,  Node: ESS for JAGS,  Next: Mailing lists/bug reports,  Prev: ESS for BUGS,  Up: Top
+File: doc9ZIYOV.info,  Node: ESS for JAGS,  Next: Mailing lists/bug reports,  Prev: ESS for BUGS,  Up: Top
 
 15 ESS for JAGS
 ***************
@@ -4479,7 +4483,7 @@ useful to refresh the '.jog' if the batch process over-writes or appends
 it.
 
 
-File: docThhxOi.info,  Node: Mailing lists/bug reports,  Next: Customization,  Prev: ESS for JAGS,  Up: Top
+File: doc9ZIYOV.info,  Node: Mailing lists/bug reports,  Next: Customization,  Prev: ESS for JAGS,  Up: Top
 
 16 Bugs and Bug Reporting, Mailing Lists
 ****************************************
@@ -4492,7 +4496,7 @@ File: docThhxOi.info,  Node: Mailing lists/bug reports,  Next: Customization,  P
 * Help with Emacs::
 
 
-File: docThhxOi.info,  Node: Bugs,  Next: Reporting Bugs,  Up: Mailing lists/bug reports
+File: doc9ZIYOV.info,  Node: Bugs,  Next: Reporting Bugs,  Up: Mailing lists/bug reports
 
 16.1 Bugs
 =========
@@ -4532,7 +4536,7 @@ File: docThhxOi.info,  Node: Bugs,  Next: Reporting Bugs,  Up: Mailing lists/bug
      'R-customize-alist'.
 
 
-File: docThhxOi.info,  Node: Reporting Bugs,  Next: Mailing Lists,  Prev: Bugs,  Up: Mailing lists/bug reports
+File: doc9ZIYOV.info,  Node: Reporting Bugs,  Next: Mailing Lists,  Prev: Bugs,  Up: Mailing lists/bug reports
 
 16.2 Reporting Bugs
 ===================
@@ -4557,7 +4561,7 @@ containing debug information; send us that buffer.
 donations are also more than welcome.
 
 
-File: docThhxOi.info,  Node: Mailing Lists,  Next: Help with Emacs,  Prev: Reporting Bugs,  Up: Mailing lists/bug reports
+File: doc9ZIYOV.info,  Node: Mailing Lists,  Next: Help with Emacs,  Prev: Reporting Bugs,  Up: Mailing lists/bug reports
 
 16.3 Mailing Lists
 ==================
@@ -4577,7 +4581,7 @@ this is a fairly low-volume mailing list.
    * posting small patches to ESS.
 
 
-File: docThhxOi.info,  Node: Help with Emacs,  Prev: Mailing Lists,  Up: Mailing lists/bug reports
+File: doc9ZIYOV.info,  Node: Help with Emacs,  Prev: Mailing Lists,  Up: Mailing lists/bug reports
 
 16.4 Help with Emacs
 ====================
@@ -4590,7 +4594,7 @@ Emacs FAQs (try 'M-x view-emacs-faq') and EmacsWiki
 mailing list about issues that are not specific to ESS.
 
 
-File: docThhxOi.info,  Node: Customization,  Next: Indices,  Prev: Mailing lists/bug reports,  Up: Top
+File: doc9ZIYOV.info,  Node: Customization,  Next: Indices,  Prev: Mailing lists/bug reports,  Up: Top
 
 Appendix A Customizing ESS
 **************************
@@ -4608,7 +4612,7 @@ all the ESS variables that can be customized.  Variables are grouped by
 subject to make it easy to find related variables.
 
 
-File: docThhxOi.info,  Node: Indices,  Prev: Customization,  Up: Top
+File: doc9ZIYOV.info,  Node: Indices,  Prev: Customization,  Up: Top
 
 Indices
 *******
@@ -4621,7 +4625,7 @@ Indices
 * Concept index::
 
 
-File: docThhxOi.info,  Node: Key index,  Next: Function and program index,  Up: Indices
+File: doc9ZIYOV.info,  Node: Key index,  Next: Function and program index,  Up: Indices
 
 Key index
 =========
@@ -4700,7 +4704,7 @@ Key index
 * TAB:                                   Indenting.            (line 35)
 
 
-File: docThhxOi.info,  Node: Function and program index,  Next: Variable index,  Prev: Key index,  Up: Indices
+File: doc9ZIYOV.info,  Node: Function and program index,  Next: Variable index,  Prev: Key index,  Up: Indices
 
 Function and program index
 ==========================
@@ -4838,7 +4842,7 @@ Function and program index
                                                               (line   6)
 
 
-File: docThhxOi.info,  Node: Variable index,  Next: Concept index,  Prev: Function and program index,  Up: Indices
+File: doc9ZIYOV.info,  Node: Variable index,  Next: Concept index,  Prev: Function and program index,  Up: Indices
 
 Variable index
 ==============
@@ -4895,7 +4899,7 @@ Variable index
                                                                (line 82)
 
 
-File: docThhxOi.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
+File: doc9ZIYOV.info,  Node: Concept index,  Prev: Variable index,  Up: Indices
 
 Concept Index
 =============
@@ -5056,105 +5060,105 @@ Node: Introduction2918
 Node: Features5678
 Node: Current Features6510
 Node: New features9967
-Node: Credits36585
-Node: Manual40208
-Node: Installation42880
-Node: Installing from a third-party repository43823
-Node: Installing from source44776
-Node: Activating and Loading ESS46374
-Node: Check Installation47454
-Node: Interactive ESS47680
-Node: Starting up48531
-Node: Multiple ESS processes49281
-Node: ESS processes on Remote Computers50368
-Node: Customizing startup54477
-Node: Controlling buffer display57373
-Node: Entering commands60000
-Node: Command-line editing61164
-Node: Transcript62403
-Node: Last command64178
-Node: Process buffer motion65610
-Node: Transcript resubmit67119
-Node: Saving transcripts69090
-Node: Command History70886
-Node: Saving History74301
-Node: History expansion75068
-Node: Hot keys78285
-Node: Statistical Process running in ESS?82361
-Node: Emacsclient83646
-Node: Other84444
-Node: Evaluating code85469
-Node: Transcript Mode89271
-Node: Resubmit90430
-Node: Clean91499
-Node: Editing objects92501
-Node: Edit buffer93625
-Node: Loading95677
-Node: Error Checking96710
-Node: Indenting97765
-Node: Styles100815
-Node: Other edit buffer commands103195
-Node: Source Files104857
-Node: Source Directories109467
-Node: Help112626
-Node: Completion117078
-Node: Object names117299
-Node: Function arguments119939
-Node: Minibuffer completion120888
-Node: Company121368
-Node: Icicles121761
-Node: Developing with ESS123087
-Node: ESS tracebug123539
-Node: Getting started with tracebug126552
-Node: Editing documentation128716
-Node: R documentation files129274
-Node: roxygen2132983
-Node: Namespaced Evaluation137400
-Node: Extras139404
-Node: ESS ElDoc140434
-Node: ESS Flymake141936
-Node: Handy commands143036
-Node: Highlighting144239
-Node: Parens145280
-Node: Graphics145762
-Node: printer146439
-Node: X11147201
-Node: winjava147546
-Node: Imenu147964
-Node: Toolbar148817
-Node: Xref149231
-Node: Rdired149565
-Node: Package listing150634
-Node: Org152024
-Node: Sweave and AUCTeX152984
-Node: ESS for R155542
-Node: ESS(R)--Editing files155848
-Node: iESS(R)--Inferior ESS processes156355
-Node: Philosophies for using ESS(R)159016
-Node: Example ESS usage159949
-Node: ESS for SAS161360
-Node: ESS(SAS)--Design philosophy162089
-Node: ESS(SAS)--Editing files163028
-Node: ESS(SAS)--TAB key164888
-Node: ESS(SAS)--Batch SAS processes166260
-Node: ESS(SAS)--Function keys for batch processing171294
-Node: iESS(SAS)--Interactive SAS processes180787
-Node: iESS(SAS)--Common problems184547
-Node: ESS(SAS)--Graphics186077
-Node: ESS(SAS)--Windows186866
-Node: ESS for BUGS187450
-Node: ESS for JAGS189212
-Node: Mailing lists/bug reports192570
-Node: Bugs192840
-Node: Reporting Bugs194470
-Node: Mailing Lists195369
-Node: Help with Emacs196102
-Node: Customization196640
-Node: Indices197420
-Node: Key index197601
-Node: Function and program index202739
-Node: Variable index212165
-Node: Concept index215732
+Node: Credits36730
+Node: Manual40353
+Node: Installation43025
+Node: Installing from a third-party repository43968
+Node: Installing from source44921
+Node: Activating and Loading ESS46519
+Node: Check Installation47599
+Node: Interactive ESS47825
+Node: Starting up48676
+Node: Multiple ESS processes49426
+Node: ESS processes on Remote Computers50513
+Node: Customizing startup54622
+Node: Controlling buffer display57518
+Node: Entering commands60145
+Node: Command-line editing61309
+Node: Transcript62548
+Node: Last command64323
+Node: Process buffer motion65755
+Node: Transcript resubmit67264
+Node: Saving transcripts69235
+Node: Command History71031
+Node: Saving History74446
+Node: History expansion75213
+Node: Hot keys78430
+Node: Statistical Process running in ESS?82506
+Node: Emacsclient83791
+Node: Other84589
+Node: Evaluating code85614
+Node: Transcript Mode89416
+Node: Resubmit90575
+Node: Clean91644
+Node: Editing objects92646
+Node: Edit buffer93770
+Node: Loading95822
+Node: Error Checking96855
+Node: Indenting97910
+Node: Styles100960
+Node: Other edit buffer commands103340
+Node: Source Files105002
+Node: Source Directories109612
+Node: Help112771
+Node: Completion117223
+Node: Object names117444
+Node: Function arguments120084
+Node: Minibuffer completion121033
+Node: Company121513
+Node: Icicles121906
+Node: Developing with ESS123232
+Node: ESS tracebug123684
+Node: Getting started with tracebug126697
+Node: Editing documentation128861
+Node: R documentation files129419
+Node: roxygen2133128
+Node: Namespaced Evaluation137545
+Node: Extras139549
+Node: ESS ElDoc140579
+Node: ESS Flymake142081
+Node: Handy commands143181
+Node: Highlighting144384
+Node: Parens145425
+Node: Graphics145907
+Node: printer146584
+Node: X11147346
+Node: winjava147691
+Node: Imenu148109
+Node: Toolbar148962
+Node: Xref149376
+Node: Rdired149710
+Node: Package listing150779
+Node: Org152169
+Node: Sweave and AUCTeX153129
+Node: ESS for R155687
+Node: ESS(R)--Editing files155993
+Node: iESS(R)--Inferior ESS processes156500
+Node: Philosophies for using ESS(R)159161
+Node: Example ESS usage160094
+Node: ESS for SAS161505
+Node: ESS(SAS)--Design philosophy162234
+Node: ESS(SAS)--Editing files163173
+Node: ESS(SAS)--TAB key165033
+Node: ESS(SAS)--Batch SAS processes166405
+Node: ESS(SAS)--Function keys for batch processing171439
+Node: iESS(SAS)--Interactive SAS processes180932
+Node: iESS(SAS)--Common problems184692
+Node: ESS(SAS)--Graphics186222
+Node: ESS(SAS)--Windows187011
+Node: ESS for BUGS187595
+Node: ESS for JAGS189357
+Node: Mailing lists/bug reports192715
+Node: Bugs192985
+Node: Reporting Bugs194615
+Node: Mailing Lists195514
+Node: Help with Emacs196247
+Node: Customization196785
+Node: Indices197565
+Node: Key index197746
+Node: Function and program index202884
+Node: Variable index212310
+Node: Concept index215877
 
 End Tag Table
 
