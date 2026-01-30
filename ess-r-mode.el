@@ -299,13 +299,110 @@ When t, loading a file into a namespaced will output information
 about which objects are exported and which stay hidden in the
 namespace.")
 
-(defun ess-r-outline-level ()
-  "R mode `outline-level` function."
+(defconst ess-r--outline-rstudio-regexp
+  "^[ \t]*#+ +.*\\(?:----\\|====\\|####\\)\\s-*$"
+  "R outline Regexp when `ess-r-outline-style' is `RStudio'.")
+
+(defconst ess-r--outline-org-like-regexp
+  "^\\(?:> \\)?###\\s-+\\(\\*+\\)\\s-+.*$"
+  "R outline regexp used when `ess-r-outline-style' is `Org-like'.")
+
+(defun ess-r--outline-style-definition (&optional style)
+  "Return the style definition for STYLE, defaulting to `ess-r-outline-style'."
+  (let ((style (or style ess-r-outline-style)))
+    (or (assq style ess-r-outline-style-alist)
+        (error "Unknown ESS outline style: %s" style))))
+
+(defun ess-r--outline-style-value (key &optional style)
+  "Return value for KEY in STYLE's definition."
+  (cdr (assq key (cdr (ess-r--outline-style-definition style)))))
+
+(defun ess-r--outline-level-rstudio ()
+  "Compute outline level for `RStudio` style headings."
   (save-excursion
     (beginning-of-line)
     (if (looking-at "^[ \t]*\\(#+\\)\\s-")
-	(length (match-string 1))
+        (length (match-string 1))
       1000)))
+
+(defun ess-r--outline-level-org-like ()
+  "Compute outline level for `Org-like` style headings."
+  (save-excursion
+    (beginning-of-line)
+    (if (looking-at "^\\(?:> \\)?###\\s-+\\(\\*+\\)\\s-+")
+        (length (match-string 1))
+      1000)))
+
+(defun ess-r--outline-level-none ()
+  "Dummy outline level function for no outline support."
+  1000)
+
+(defconst ess-r-outline-style-alist
+  `((none
+     (outline-regexp . "\\`a\\`")
+     (outline-level  . ,#'ess-r--outline-level-none))
+    (RStudio
+     (outline-regexp . ,ess-r--outline-rstudio-regexp)
+     (outline-level  . ,#'ess-r--outline-level-rstudio))
+    (Org-like
+     (outline-regexp . ,ess-r--outline-org-like-regexp)
+     (outline-level  . ,#'ess-r--outline-level-org-like)))
+  "Mapping between outline styles and their regexp/level helpers.")
+
+(defun ess-r-outline-level ()
+  "R mode `outline-level` dispatcher for the current outline style."
+  (funcall (ess-r--outline-style-value 'outline-level)))
+
+(defvar-local ess-r--saved-indent-with-fancy-comments nil
+  "Saved state of `ess-indent-with-fancy-comments' before RStudio style.
+Stored as (VALUE . WAS-LOCAL) to restore both value and local binding.")
+
+(defun ess-r-set-outline-style (&optional style)
+  "Apply STYLE (or `ess-r-outline-style') to the current buffer.
+
+When switching to RStudio style, `ess-indent-with-fancy-comments' is
+automatically set to nil locally. The previous value is saved and
+restored when switching to a different style."
+  (interactive
+   (list (intern (completing-read
+                 "Outline style"
+                 (mapcar (lambda (entry) (symbol-name (car entry)))
+                         ess-r-outline-style-alist)
+                 nil t nil nil
+                 (symbol-name (or ess-r-outline-style 'none))))))
+  (let* ((style (or style ess-r-outline-style))
+         (entry (ess-r--outline-style-definition style))
+         (old-style ess-r-outline-style)
+         (new-style (car entry)))
+    ;; Handle ess-indent-with-fancy-comments adjustment
+    (cond
+     ;; Switching TO RStudio style
+     ((and (eq new-style 'RStudio)
+           (not (eq old-style 'RStudio)))
+      ;; Save current value if not already saved
+      (unless ess-r--saved-indent-with-fancy-comments
+        (setq ess-r--saved-indent-with-fancy-comments
+              (cons (if (local-variable-p 'ess-indent-with-fancy-comments)
+                        ess-indent-with-fancy-comments
+                      (default-value 'ess-indent-with-fancy-comments))
+                    (local-variable-p 'ess-indent-with-fancy-comments))))
+      (setq-local ess-indent-with-fancy-comments nil))
+     ;; Switching FROM RStudio style to another
+     ((and (eq old-style 'RStudio)
+           (not (eq new-style 'RStudio))
+           ess-r--saved-indent-with-fancy-comments)
+      ;; Restore saved value and local state
+      (let ((saved-value (car ess-r--saved-indent-with-fancy-comments))
+            (saved-local (cdr ess-r--saved-indent-with-fancy-comments)))
+        (if saved-local
+            (setq-local ess-indent-with-fancy-comments saved-value)
+          (when (local-variable-p 'ess-indent-with-fancy-comments)
+            (kill-local-variable 'ess-indent-with-fancy-comments))))
+      (setq ess-r--saved-indent-with-fancy-comments nil)))
+    ;; Apply outline style
+    (setq-local ess-r-outline-style new-style)
+    (setq-local outline-regexp (ess-r--outline-style-value 'outline-regexp style))
+    (setq-local outline-level #'ess-r-outline-level)))
 
 ;; The syntax class for '\' is punctuation character to handle R 4.1
 ;; lambdas. Inside strings it should be treated as an escape
@@ -843,6 +940,8 @@ top level functions only."
   (setq-local electric-layout-rules '((?{ . after)))
   ;; indentation
   (add-hook 'hack-local-variables-hook #'ess-set-style nil t)
+  ;; outline
+  (add-hook 'hack-local-variables-hook #'ess-r-set-outline-style nil t)
   ;; eldoc
   (ess--setup-eldoc #'ess-r-eldoc-function)
   ;; auto-complete
@@ -864,8 +963,7 @@ top level functions only."
   (when ess-imenu-use-S
     (imenu-add-to-menubar "Imenu-R"))
   ;; outline
-  (setq-local outline-level #'ess-r-outline-level)
-  (setq-local outline-regexp ess-r-outline-regexp)
+  (ess-r-set-outline-style)
   (setq-local beginning-of-defun-function #'ess-r-beginning-of-defun)
   (setq-local end-of-defun-function #'ess-r-end-of-defun)
   (ess-roxy-mode))

@@ -1,3 +1,32 @@
+2026-01-25 Christophe Gouel <christophe.gouel@inrae.fr>
+
+	* lisp/ess-custom.el (ess-r-outline-style): Change default from
+	'RStudio to 'none for backward compatibility. Add 'none option to
+	preserve previous behavior where outline support was not active.
+	Update docstring to document automatic adjustment of
+	ess-indent-with-fancy-comments.
+	* lisp/ess-r-mode.el (ess-r--outline-level-none)
+	(ess-r--saved-indent-with-fancy-comments): Add support for 'none
+	outline style. Automatically set ess-indent-with-fancy-comments to
+	nil when using RStudio style, and restore previous value when
+	switching away.
+	* doc/ess.texi (Outline navigation): Document 'none as default,
+	explain automatic adjustment of ess-indent-with-fancy-comments.
+
+2026-01-04 Christophe Gouel <christophe.gouel@inrae.fr>
+
+	* lisp/ess-custom.el (ess-r-outline-style) (ess-r-outline-regexp):
+	New user option to pick an outline convention (RStudio rulers vs.
+	Org-like). Remove option ess-r-outline-regexp.
+	* lisp/ess-r-mode.el (ess-r-outline-style-alist)
+	(ess-r--outline-style-definition)
+	(ess-r--outline-style-value)
+	(ess-r-outline-level)
+	(ess-r-set-outline-style): Drive outline-minor-mode via the selected
+	style and make the choice hack-local-variable aware.
+	* doc/ess.texi (Outline navigation): Document `ess-r-outline-style`
+	and the available styles.
+
 2025-10-27 Christophe Gouel <christophe.gouel@inrae.fr>
 
 	* lisp/ess-custom.el: Support for outline-minor-mode
