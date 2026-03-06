@@ -1,4 +1,11 @@
-Changes and New Features in 25.01.0:
+Changes and New Features in 26.01.0:
+   • ESS[BUGS] is still relevant due to NIMBLE keeping the language
+     alive.  However, only syntax highlighting and key-presses will be
+     supported moving forward.  For example, the ‘<’ key now generates
+     ‘<-’ rather than the former ‘=’ since equals is a valid character
+     in NIMBLE BUGS.
+
+   Changes and New Features in 25.01.0:
 
    • polymode: In our transition from literate libraries (such as noweb
      documented below with respect to 19.04), we now recommend the
@@ -84,11 +91,5 @@ Changes and New Features in 25.01.0:
      changed and the aliases are read again.
 
    • ESS: ‘ess-command’ now uses a default timeout of 30 seconds.  It
-     should normally be avoided with long-running tasks because it
-     causes Emacs to block while the command is running.  If the timeout
-     is reached, an error is thrown.  An interrupt is also sent to the
-     process in case of early exit.
-
-     This is a behaviour change: you will now have to explicitly opt in
 ...
 ...
