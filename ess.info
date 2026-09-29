@@ -248,9 +248,8 @@ File: ess.info,  Node: New features,  Next: Credits,  Prev: Features,  Up: Intro
 1.2 New features in ESS
 =======================
 
-Changes and New Features in 27.XX.0:
-   • SAS function names are now automatically generated; see
-     ‘etc/func.sas’.
+Changes and New Features in 26.09.0:
+   • ‘<Rpkg>/DESCRIPTION’ files are now opened in new ‘ess-dcf-mode’.
 
    Changes and New Features in 26.01.0:
    • ESS[BUGS] is still relevant due to NIMBLE keeping the language
@@ -4985,105 +4984,105 @@ Node: Introduction2895
 Node: Features5683
 Node: Current Features6509
 Node: New features10056
-Node: Credits38361
-Node: Manual42020
-Node: Installation44730
-Node: Installing from a third-party repository45667
-Node: Installing from source46614
-Node: Activating and Loading ESS48238
-Node: Check Installation49320
-Node: Interactive ESS49544
-Node: Starting up50389
-Node: Multiple ESS processes51149
-Node: ESS processes on Remote Computers52262
-Node: Customizing startup56489
-Node: Controlling buffer display59471
-Node: Entering commands62108
-Node: Command-line editing63270
-Node: Transcript64535
-Node: Last command66332
-Node: Process buffer motion67790
-Node: Transcript resubmit69333
-Node: Saving transcripts71330
-Node: Command History73164
-Node: Saving History76665
-Node: History expansion77446
-Node: Hot keys80837
-Node: Statistical Process running in ESS?85007
-Node: Emacsclient86354
-Node: Other87174
-Node: Evaluating code88217
-Node: Transcript Mode92149
-Node: Resubmit93322
-Node: Clean94397
-Node: Editing objects95397
-Node: Edit buffer96515
-Node: Loading98605
-Node: Error Checking99660
-Node: Indenting100733
-Node: Styles103885
-Node: Other edit buffer commands106387
-Node: Source Files108099
-Node: Source Directories112815
-Node: Help116024
-Node: Completion120726
-Node: Object names120941
-Node: Function arguments123655
-Node: Minibuffer completion124634
-Node: Company125132
-Node: Icicles125531
-Node: Developing with ESS126907
-Node: ESS tracebug127353
-Node: Getting started with tracebug130412
-Node: Editing documentation132698
-Node: R documentation files133250
-Node: roxygen2137065
-Node: Namespaced Evaluation141588
-Node: Extras143602
-Node: ESS ElDoc144694
-Node: ESS Flymake146274
-Node: Handy commands147404
-Node: Highlighting148681
-Node: Parens149732
-Node: Graphics150208
-Node: printer150879
-Node: X11151651
-Node: winjava151990
-Node: Imenu152402
-Node: Outline153257
-Node: Toolbar155490
-Node: Xref155900
-Node: Rdired156230
-Node: Package listing157309
-Node: Org158757
-Node: Sweave and AUCTeX159711
-Node: ESS for R160308
-Node: ESS(R)--Editing files160608
-Node: iESS(R)--Inferior ESS processes161113
-Node: Philosophies for using ESS(R)163832
-Node: Example ESS usage164759
-Node: ESS for SAS166164
-Node: ESS(SAS)--Design philosophy166891
-Node: ESS(SAS)--Editing files167828
-Node: ESS(SAS)--TAB key169772
-Node: ESS(SAS)--Batch SAS processes171186
-Node: ESS(SAS)--Function keys for batch processing176406
-Node: iESS(SAS)--Interactive SAS processes186313
-Node: iESS(SAS)--Common problems190255
-Node: ESS(SAS)--Graphics191869
-Node: ESS(SAS)--Windows192668
-Node: ESS for BUGS193252
-Node: Mailing lists/bug reports193808
-Node: Bugs194072
-Node: Reporting Bugs195748
-Node: Mailing Lists196667
-Node: Help with Emacs197404
-Node: Customization197940
-Node: Indices198718
-Node: Key index198893
-Node: Function and program index203806
-Node: Variable index213080
-Node: Concept index216714
+Node: Credits38353
+Node: Manual42012
+Node: Installation44722
+Node: Installing from a third-party repository45659
+Node: Installing from source46606
+Node: Activating and Loading ESS48230
+Node: Check Installation49312
+Node: Interactive ESS49536
+Node: Starting up50381
+Node: Multiple ESS processes51141
+Node: ESS processes on Remote Computers52254
+Node: Customizing startup56481
+Node: Controlling buffer display59463
+Node: Entering commands62100
+Node: Command-line editing63262
+Node: Transcript64527
+Node: Last command66324
+Node: Process buffer motion67782
+Node: Transcript resubmit69325
+Node: Saving transcripts71322
+Node: Command History73156
+Node: Saving History76657
+Node: History expansion77438
+Node: Hot keys80829
+Node: Statistical Process running in ESS?84999
+Node: Emacsclient86346
+Node: Other87166
+Node: Evaluating code88209
+Node: Transcript Mode92141
+Node: Resubmit93314
+Node: Clean94389
+Node: Editing objects95389
+Node: Edit buffer96507
+Node: Loading98597
+Node: Error Checking99652
+Node: Indenting100725
+Node: Styles103877
+Node: Other edit buffer commands106379
+Node: Source Files108091
+Node: Source Directories112807
+Node: Help116016
+Node: Completion120718
+Node: Object names120933
+Node: Function arguments123647
+Node: Minibuffer completion124626
+Node: Company125124
+Node: Icicles125523
+Node: Developing with ESS126899
+Node: ESS tracebug127345
+Node: Getting started with tracebug130404
+Node: Editing documentation132690
+Node: R documentation files133242
+Node: roxygen2137057
+Node: Namespaced Evaluation141580
+Node: Extras143594
+Node: ESS ElDoc144686
+Node: ESS Flymake146266
+Node: Handy commands147396
+Node: Highlighting148673
+Node: Parens149724
+Node: Graphics150200
+Node: printer150871
+Node: X11151643
+Node: winjava151982
+Node: Imenu152394
+Node: Outline153249
+Node: Toolbar155482
+Node: Xref155892
+Node: Rdired156222
+Node: Package listing157301
+Node: Org158749
+Node: Sweave and AUCTeX159703
+Node: ESS for R160300
+Node: ESS(R)--Editing files160600
+Node: iESS(R)--Inferior ESS processes161105
+Node: Philosophies for using ESS(R)163824
+Node: Example ESS usage164751
+Node: ESS for SAS166156
+Node: ESS(SAS)--Design philosophy166883
+Node: ESS(SAS)--Editing files167820
+Node: ESS(SAS)--TAB key169764
+Node: ESS(SAS)--Batch SAS processes171178
+Node: ESS(SAS)--Function keys for batch processing176398
+Node: iESS(SAS)--Interactive SAS processes186305
+Node: iESS(SAS)--Common problems190247
+Node: ESS(SAS)--Graphics191861
+Node: ESS(SAS)--Windows192660
+Node: ESS for BUGS193244
+Node: Mailing lists/bug reports193800
+Node: Bugs194064
+Node: Reporting Bugs195740
+Node: Mailing Lists196659
+Node: Help with Emacs197396
+Node: Customization197932
+Node: Indices198710
+Node: Key index198885
+Node: Function and program index203798
+Node: Variable index213072
+Node: Concept index216706
 
 End Tag Table
 
